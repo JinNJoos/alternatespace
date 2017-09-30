@@ -133,7 +133,7 @@ if (mode = 'charselect')
         }
     }
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         d = audio_play_sound_on(emit,f_confirm,false,10);
         with (o_char2show)
@@ -160,7 +160,7 @@ else if (mode = 'ready1')
 or (mode = 'standby1')
 {
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'charselect';
@@ -179,7 +179,7 @@ or (mode = 'standby1')
 else if (mode = 'paletteselect')
 {
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'charselect';
@@ -237,7 +237,7 @@ else if (mode = 'paletteselect')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         d = audio_play_sound_on(emit,f_confirm,false,10);
         mode = 'auraselect';
@@ -249,7 +249,7 @@ else if (mode = 'paletteselect')
 else if (mode = 'auraselect')
 {
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'paletteselect';
@@ -368,7 +368,7 @@ else if (mode = 'auraselect')
         }
     }
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         d = audio_play_sound_on(emit,f_confirm,false,10);
         mode = 'ready2';
@@ -381,7 +381,7 @@ else if (mode = 'ready2')
 or (mode = 'standby2')
 {
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'auraselect';
@@ -468,7 +468,7 @@ else if (mode = 'setselect')
     }
     
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'auraselect';
@@ -558,7 +558,7 @@ else if (mode = 'setselect')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         d = audio_play_sound_on(emit,f_confirm,false,10);
         if (set = 'custom')
@@ -675,7 +675,7 @@ else if (mode = 'skillselectA')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_a = 'none'
@@ -1038,7 +1038,7 @@ else if (mode = 'skillselectA')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         d = audio_play_sound_on(emit,f_confirm,false,10);
         mode = 'skillselectB';
@@ -1146,7 +1146,7 @@ else if (mode = 'skillselectB')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_a = global.p2skill_b;
@@ -1509,7 +1509,7 @@ else if (mode = 'skillselectB')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         if not (global.p2skill_b = global.p2skill_a)
         {
@@ -1620,7 +1620,7 @@ else if (mode = 'skillselectC')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_b = global.p2skill_c;
@@ -1983,7 +1983,7 @@ else if (mode = 'skillselectC')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         if not (global.p2skill_c = global.p2skill_a)
         and not (global.p2skill_c = global.p2skill_b)
@@ -2095,7 +2095,7 @@ else if (mode = 'skillselectD')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_c = global.p2skill_d;
@@ -2458,7 +2458,7 @@ else if (mode = 'skillselectD')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         if not (global.p2skill_d = global.p2skill_a)
         and not (global.p2skill_d = global.p2skill_b)
@@ -2571,7 +2571,7 @@ else if (mode = 'skillselectE')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_d = global.p2skill_e;
@@ -2935,7 +2935,7 @@ else if (mode = 'skillselectE')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         if not (global.p2skill_e = global.p2skill_a)
         and not (global.p2skill_e = global.p2skill_b)
@@ -3049,7 +3049,7 @@ else if (mode = 'skillselectF')
     }
 
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         global.p2skill_e = global.p2skill_f;
@@ -3412,7 +3412,7 @@ else if (mode = 'skillselectF')
     }
     
     if (keyboard_check_pressed(global.p2_tech_a))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_a))
+    or (gamepad_button_check_pressed(1,gp_face1))
     {
         if not (global.p2skill_f = global.p2skill_a)
         and not (global.p2skill_f = global.p2skill_b)
@@ -3444,7 +3444,7 @@ or (mode = 'standby3')
         o_char1arrow.mode = 'standby3';
     }
     if (keyboard_check_pressed(global.p2_tech_b))
-    or (gamepad_button_check_pressed(1,global.p2p_tech_b))
+    or (gamepad_button_check_pressed(1,gp_face2))
     {
         d = audio_play_sound_on(emit,f_select,false,10);
         mode = 'skillselectF';
