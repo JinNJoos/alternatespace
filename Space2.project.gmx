@@ -258,6 +258,8 @@
           <sprite>sprites\s_zerhurt</sprite>
           <sprite>sprites\s_zeraim</sprite>
           <sprite>sprites\s_zerfire</sprite>
+          <sprite>sprites\s_zermelee1</sprite>
+          <sprite>sprites\s_zermelee2</sprite>
         </sprites>
         <sprite>sprites\s_auraglow</sprite>
         <sprite>sprites\s_auraemit</sprite>
