@@ -35,11 +35,11 @@ global.p2_pal = 0;
         image_speed = 0.1;
         global.p2_pal_sprite = s_lozpalette;
     }
-    if (global.p2char = 'shyo')
+    if (global.p2char = 'zer')
     {
-        sprite_index = s_shyo;
+        sprite_index = s_zer;
         image_speed = 0.1;
-        global.p2_pal_sprite = s_shyopalette;
+        global.p2_pal_sprite = s_zerpalette;
     }
 </string>
           </argument>
@@ -68,10 +68,10 @@ global.p2_pal = 0;
     image_speed = 0.1;
     sprite_index = s_loz;
 }
-if (global.p2char = 'shyo')
+if (global.p2char = 'zer')
 {
     image_speed = 0.1;
-    sprite_index = s_shyo;
+    sprite_index = s_zer;
 }
 </string>
           </argument>
@@ -176,11 +176,11 @@ if (mode = "set")
         image_speed = 0.1;
         global.p2_pal_sprite = s_lozpalette;
     }
-    if (global.p2char = 'shyo')
+    if (global.p2char = 'zer')
     {
-        sprite_index = s_shyo;
+        sprite_index = s_zer;
         image_speed = 0.1;
-        global.p2_pal_sprite = s_shyopalette;
+        global.p2_pal_sprite = s_zerpalette;
     }
 }
 global.p2_pal=wrap(global.p2_pal,0,pal_swap_get_pal_count(global.p2_pal_sprite)-1);
@@ -215,9 +215,9 @@ image_xscale = -1
         image_speed = 0;
     }
 }
-if (global.p2char = 'shyo')
+if (global.p2char = 'zer')
 {
-    if not (sprite_index = s_shyo)
+    if not (sprite_index = s_zer)
     {
         image_index = image_number - 1;
         image_speed = 0;

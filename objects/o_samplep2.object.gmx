@@ -26,7 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>global.p2_pal = round(random(7));
-global.p2_pal_sprite = s_lozpalette;
+if (global.sampleplayer2 = 'loz')
+{
+    sprite_index = s_lozrush;
+    global.p2_pal_sprite = s_lozpalette;
+}
+if (global.sampleplayer2 = 'zer')
+{
+    sprite_index = s_zerrush;
+    global.p2_pal_sprite = s_zerpalette;
+}
 
 stats = instance_create(x,y,o_samplestats);
 with (stats)

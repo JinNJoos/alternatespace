@@ -87,14 +87,14 @@ if (player = 1)
 {
     draw_sprite_ext(sprite_index,image_index,o_samplep1.x,o_samplep1.y,image_xscale*1.1,image_yscale*1.1,image_angle,c_white,image_alpha*0.4);
     draw_set_blend_mode(bm_add);
-    draw_sprite_ext(sprite_index,image_index,o_samplep1.x,o_samplep1.y,image_xscale*1.2,image_yscale*1.2,image_angle,c_aqua,image_alpha*0.5);
+    draw_sprite_ext(sprite_index,image_index,o_samplep1.x,o_samplep1.y,image_xscale*1.2,image_yscale*1.2,image_angle,global.samplep1aura,image_alpha*0.5);
     draw_set_blend_mode(bm_normal);
 }
 if (player = 2)
 {
     draw_sprite_ext(sprite_index,image_index,o_samplep2.x,o_samplep2.y,image_xscale*1.1,image_yscale*1.1,image_angle,c_white,image_alpha*0.4);
     draw_set_blend_mode(bm_add);
-    draw_sprite_ext(sprite_index,image_index,o_samplep2.x,o_samplep2.y,image_xscale*1.2,image_yscale*1.2,image_angle,c_orange,image_alpha*0.5);
+    draw_sprite_ext(sprite_index,image_index,o_samplep2.x,o_samplep2.y,image_xscale*1.2,image_yscale*1.2,image_angle,global.samplep2aura,image_alpha*0.5);
     draw_set_blend_mode(bm_normal);
 }
 </string>

@@ -8,6 +8,74 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.sampleplayer1 = choose('loz','zer');
+global.samplep1aura = choose(c_fuchsia,c_aqua,c_lime,c_white,c_yellow,c_orange,c_red);
+
+
+global.sampleplayer2 = choose('loz','zer');
+global.samplep2aura = choose(c_fuchsia,c_aqua,c_lime,c_white,c_yellow,c_orange,c_red);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.sampleplayer1 = 'loz')
+{
+    p1icon = s_lozicon;
+}
+if (global.sampleplayer1 = 'zer')
+{
+    p1icon = s_zericon;
+}
+
+if (global.sampleplayer2 = 'loz')
+{
+    p2icon = s_lozicon;
+}
+if (global.sampleplayer2 = 'zer')
+{
+    p2icon = s_zericon;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -37,7 +105,7 @@ draw_text_ext_transformed(view_xview+(view_wview*0.5),view_yview+(view_hview*0.0
 draw_set_color(c_white);
 
 
-draw_sprite_ext(s_lozicon,-1,view_xview+(view_wview*0.07),view_yview+(view_hview*0.11),view_wview/640,view_hview/360,0,c_white,0.7)
+draw_sprite_ext(p1icon,-1,view_xview+(view_wview*0.07),view_yview+(view_hview*0.11),view_wview/640,view_hview/360,0,c_white,0.7)
 
 if (global.interface = "Overlay")
 or (global.interface = "Full")
@@ -64,7 +132,7 @@ if (global.moveset = "On")
 }
 
 
-draw_sprite_ext(s_lozicon,-1,view_xview+(view_wview*0.93),view_yview+(view_hview*0.11),-view_wview/640,view_hview/360,0,c_white,0.7)
+draw_sprite_ext(p2icon,-1,view_xview+(view_wview*0.93),view_yview+(view_hview*0.11),-view_wview/640,view_hview/360,0,c_white,0.7)
 
 if (global.interface = "Overlay")
 or (global.interface = "Full")

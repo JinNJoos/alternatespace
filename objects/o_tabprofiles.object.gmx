@@ -53,7 +53,7 @@ alarm[0] = 1 + random(30);
 {
     instance_create(170,150,o_noicon);
     instance_create(270,150,o_lozicon);
-    instance_create(370,150,o_shyoicon);
+    instance_create(370,150,o_zericon);
     instance_create(470,150,o_noicon);
     instance_create(170,250,o_noicon);
     instance_create(270,250,o_noicon);

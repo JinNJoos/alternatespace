@@ -70,33 +70,33 @@ if (global.p2char = 'loz')
     vatk3 = f_lozmelee3;
     vatk4 = f_lozmelee4;
 }
-if (global.p2char = 'shyo')
+if (global.p2char = 'zer')
 {
-    sprite_index = s_shyo;
-    pstand = s_shyo;
-    pguard = s_shyoguard;
-    pburst = s_shyoburst;
-    pcharge = s_shyocharge;
-    pdash = s_shyorush;
-    phurt = s_shyohurt;
-    pslam = s_shyoslam;
-    paim = s_shyoaim;
-    pfire = s_shyofire;
-    pmeleecharge = s_shyorush;
-    pmelee1 = s_shyomelee1;
-    pmelee2 = s_shyomelee2;
-    pmelee3 = s_shyomelee3;
+    sprite_index = s_zer;
+    pstand = s_zer;
+    pguard = s_zerguard;
+    pburst = s_zerburst;
+    pcharge = s_zercharge;
+    pdash = s_zerrush;
+    phurt = s_zerhurt;
+    pslam = s_zerslam;
+    paim = s_zeraim;
+    pfire = s_zerfire;
+    pmeleecharge = s_zerrush;
+    pmelee1 = s_zermelee1;
+    pmelee2 = s_zermelee2;
+    pmelee3 = s_zermelee3;
     
-    vcharge = f_shyocharge;
-    vguard = f_shyoguard;
-    vhurt1 = f_shyohurt1;
-    vhurt2 = f_shyohurt2;
-    vhurt3 = f_shyohurt3;
-    vhurt4 = f_shyohurt4;
-    vatk1 = f_shyomelee1;
-    vatk2 = f_shyomelee2;
-    vatk3 = f_shyomelee3;
-    vatk4 = f_shyomelee4;
+    vcharge = f_zercharge;
+    vguard = f_zerguard;
+    vhurt1 = f_zerhurt1;
+    vhurt2 = f_zerhurt2;
+    vhurt3 = f_zerhurt3;
+    vhurt4 = f_zerhurt4;
+    vatk1 = f_zermelee1;
+    vatk2 = f_zermelee2;
+    vatk3 = f_zermelee3;
+    vatk4 = f_zermelee4;
 }
 
 /////////////////////////////////////

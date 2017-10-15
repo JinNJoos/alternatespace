@@ -31,7 +31,7 @@ audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
 
 mode = 'pause';
 alarm[0] = 100;
-global.p2char = 'shyo';
+global.p2char = 'zer';
 global.p2aura = c_white;
 
 set = 'custom';
@@ -100,10 +100,10 @@ if (mode = 'charselect')
     x = o_lozicon.x + 10
     y = o_lozicon.y + 50
     }
-    if (global.p2char = 'shyo')
+    if (global.p2char = 'zer')
     {
-    x = o_shyoicon.x + 10
-    y = o_shyoicon.y + 50
+    x = o_zericon.x + 10
+    y = o_zericon.y + 50
     }
 
     if (keyboard_check_pressed(global.p2_move_left))
@@ -113,7 +113,7 @@ if (mode = 'charselect')
         {
             exit
         }
-        if (global.p2char = 'shyo')
+        if (global.p2char = 'zer')
         {
             global.p2char = 'loz'
             d = audio_play_sound_on(emit,f_select,false,10);
@@ -124,10 +124,10 @@ if (mode = 'charselect')
     {
         if (global.p2char = 'loz')
         {
-            global.p2char = 'shyo'
+            global.p2char = 'zer'
             d = audio_play_sound_on(emit,f_select,false,10);
         }
-        if (global.p2char = 'shyo')
+        if (global.p2char = 'zer')
         {
             exit
         }
@@ -145,9 +145,9 @@ if (mode = 'charselect')
             {
                 sprite_index = choose(s_lozfire,s_lozmelee1,s_lozmelee2,s_lozmelee3);
             }
-            if (global.p2char = 'shyo')
+            if (global.p2char = 'zer')
             {
-                sprite_index = choose(s_shyofire,s_shyomelee1,s_shyomelee2,s_shyomelee3);
+                sprite_index = choose(s_zerfire,s_zermelee1,s_zermelee2,s_zermelee3);
             }
         }
         mode = 'ready1';

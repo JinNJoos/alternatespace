@@ -90,15 +90,17 @@
         <sound>sound\f_areyouready</sound>
         <sound>sound\f_fight</sound>
       </sounds>
-      <sounds name="Raicho">
-        <sound>sound\raicharge</sound>
-        <sound>sound\raihurt1</sound>
-        <sound>sound\raihurt2</sound>
-        <sound>sound\raihurt3</sound>
-        <sound>sound\raimelee1</sound>
-        <sound>sound\raimelee2</sound>
-        <sound>sound\raimelee3</sound>
-        <sound>sound\raimelee4</sound>
+      <sounds name="Zerone">
+        <sound>sound\f_zercharge</sound>
+        <sound>sound\f_zerguard</sound>
+        <sound>sound\f_zerhurt1</sound>
+        <sound>sound\f_zerhurt2</sound>
+        <sound>sound\f_zerhurt3</sound>
+        <sound>sound\f_zerhurt4</sound>
+        <sound>sound\f_zermelee1</sound>
+        <sound>sound\f_zermelee2</sound>
+        <sound>sound\f_zermelee3</sound>
+        <sound>sound\f_zermelee4</sound>
       </sounds>
     </sounds>
     <sounds name="Menu">
@@ -161,6 +163,7 @@
         <sprite>sprites\s_selectready</sprite>
         <sprites name="Characters">
           <sprite>sprites\s_lozicon</sprite>
+          <sprite>sprites\s_zericon</sprite>
           <sprite>sprites\s_shyoicon</sprite>
           <sprite>sprites\s_noicon</sprite>
         </sprites>
@@ -241,6 +244,7 @@
           <sprite>sprites\s_shyorush</sprite>
           <sprite>sprites\s_shyocharge</sprite>
           <sprite>sprites\s_shyohurt</sprite>
+          <sprite>sprites\s_shyoaim</sprite>
           <sprite>sprites\s_shyofire</sprite>
           <sprite>sprites\s_shyomelee1</sprite>
           <sprite>sprites\s_shyomelee2</sprite>
@@ -248,7 +252,6 @@
           <sprite>sprites\s_shyoslam</sprite>
           <sprite>sprites\s_shyoguard</sprite>
           <sprite>sprites\s_shyoburst</sprite>
-          <sprite>sprites\s_shyoaim</sprite>
           <sprite>sprites\s_shyopalette</sprite>
         </sprites>
         <sprites name="Zerone">
@@ -260,6 +263,11 @@
           <sprite>sprites\s_zerfire</sprite>
           <sprite>sprites\s_zermelee1</sprite>
           <sprite>sprites\s_zermelee2</sprite>
+          <sprite>sprites\s_zermelee3</sprite>
+          <sprite>sprites\s_zerslam</sprite>
+          <sprite>sprites\s_zerguard</sprite>
+          <sprite>sprites\s_zerburst</sprite>
+          <sprite>sprites\s_zerpalette</sprite>
         </sprites>
         <sprite>sprites\s_auraglow</sprite>
         <sprite>sprites\s_auraemit</sprite>
@@ -441,6 +449,7 @@
           </objects>
           <objects name="Icons">
             <object>objects\o_lozicon</object>
+            <object>objects\o_zericon</object>
             <object>objects\o_shyoicon</object>
             <object>objects\o_noicon</object>
           </objects>

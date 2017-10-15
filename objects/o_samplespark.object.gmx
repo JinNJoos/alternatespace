@@ -26,10 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>image_angle = random(360);
-image_blend = c_aqua;
 image_alpha = 0.1+random(0.7);
-
-
 </string>
           </argument>
         </arguments>
@@ -54,7 +51,10 @@ image_alpha = 0.1+random(0.7);
             <kind>1</kind>
             <string>if (global.particles = "On")
 {
-    draw_self();
+    draw_sprite_ext(sprite_index,image_index,x,y,1,1,image_angle,c_white,0.4);
+    draw_set_blend_mode(bm_add);
+    draw_sprite_ext(sprite_index,image_index,x,y,1,1,image_angle,global.samplep1aura,0.5);
+    draw_set_blend_mode(bm_normal);
 }
 </string>
           </argument>

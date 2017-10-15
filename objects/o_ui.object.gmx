@@ -38,9 +38,9 @@ if (global.p1char = 'loz')
 {
     icon_char1 = s_lozicon;
 }
-if (global.p1char = 'shyo')
+if (global.p1char = 'zer')
 {
-    icon_char1 = s_shyoicon;
+    icon_char1 = s_zericon;
 }
 
 color_a1 = c_white;
@@ -55,9 +55,9 @@ if (global.p2char = 'loz')
 {
     icon_char2 = s_lozicon;
 }
-if (global.p2char = 'shyo')
+if (global.p2char = 'zer')
 {
-    icon_char2 = s_shyoicon;
+    icon_char2 = s_zericon;
 }
 
 color_a2 = c_white;
