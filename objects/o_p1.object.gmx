@@ -27,12 +27,11 @@
             <kind>1</kind>
             <string>global.p1hp = 300;
 global.p1tp = 100;
-burst = o_burst;
-b = o_guard;
-c = f_charge;
-d = f_atkcharge;
-e = f_lozcharge;
-g = f_teleport;
+p1burst = o_burst;
+p1guard = o_guard;
+p1snd_effect = f_charge;
+p1snd_vocal = f_lozcharge;
+p1snd_warp = f_teleport;
 p1emit = audio_emitter_create();
 p1voice = audio_emitter_create();
 mode = "pause";
@@ -166,9 +165,7 @@ with (mover)
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 21;
 }
 
@@ -199,9 +196,7 @@ else if (mode = "blast1quick")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 12;
 }
 
@@ -233,9 +228,7 @@ else if (mode = "blast2")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 12;
 }
 
@@ -308,9 +301,7 @@ else if (mode = "blast3")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 20;
 }
 
@@ -374,9 +365,7 @@ else if (mode = "blast4")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 20;
 }
 
@@ -431,9 +420,7 @@ else if (mode = "blast5")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 20;
 }
 
@@ -448,7 +435,6 @@ else if (mode = "blast6")
         a.player = 1;
         with (a)
         {
-                
                 motion_set(other.dir+other.i,5);
                 aura = global.p1aura;
         }
@@ -456,13 +442,8 @@ else if (mode = "blast6")
     mode = "blast6hit";
     speed = 0;
     sprite_index = pburst;
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
-    emit = audio_emitter_create();
-    audio_emitter_position(emit,x,y,150);
-    audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-    c = audio_play_sound_on(emit,f_fire,false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_effect = audio_play_sound_on(p1emit,f_fire,false,10);
     alarm[0] = 42;
 }
 
@@ -481,9 +462,7 @@ else if (mode = "blast7")
         hit = false;
         follow = false;
     }
-    audio_emitter_position(p1emit,x,y,150);
-    audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-    c = audio_play_sound_on(p1emit,f_atkcharge,false,10);
+    p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
 }
 
 else if (mode = "blast7quick")
@@ -519,9 +498,7 @@ else if (mode = "blast7quick")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 20;
 }
 
@@ -561,15 +538,13 @@ else if (mode = "blast7heavy")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
     if (a.scale &lt; 2.5)
     {
-        e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+        p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     }
     if (a.scale &gt;= 2.5)
     {
-        e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+        p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     }
     alarm[0] = 25;
 }
@@ -612,9 +587,7 @@ if (mode = "laser")
             image_angle = dir;
             aura = global.p1aura;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     alarm[0] = 35;
 }
 
@@ -647,9 +620,7 @@ else if (mode = "meleequick1")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 15;
 }
 
@@ -680,9 +651,7 @@ else if (mode = "meleequick2")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 15;
 }
 
@@ -713,9 +682,7 @@ else if (mode = "meleequick3")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 15;
 }
 
@@ -748,9 +715,7 @@ else if (mode = "melee1")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -781,9 +746,7 @@ else if (mode = "melee2")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -814,9 +777,7 @@ else if (mode = "melee3")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -863,9 +824,7 @@ else if (mode = "melee4")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     mode = "meleehit4";
     alarm[0] = 15;
 }
@@ -896,9 +855,7 @@ else if (mode = "melee5")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -940,9 +897,7 @@ else if (mode = "melee6")
         image_yscale = -1;
     }
     motion_set(point_direction(x,y,o_p2.x,o_p2.y),-8)
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -977,9 +932,7 @@ else if (mode = "grab")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 50;
 }
 
@@ -1010,9 +963,7 @@ else if (mode = "grabdash")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2,f_blank),false,10);
     alarm[0] = 40;
 }
 
@@ -1045,9 +996,7 @@ else if (mode = "counthit")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 30;
 }
 
@@ -1099,9 +1048,7 @@ else if (mode = "trap")
     {
         image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     alarm[0] = 25;
 }
 
@@ -1133,9 +1080,7 @@ else if (mode = "reflect")
     {
             image_yscale = -1;
     }
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     alarm[0] = 30;
 }
 
@@ -1175,9 +1120,7 @@ else if (mode = "revector")
     }
     mode = "revectorset";
     image_speed = 0.5;
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     alarm[0] = 15;
 }
 
@@ -1210,9 +1153,7 @@ else if (mode = "duplicate")
     }
     mode = "release";
     image_speed = 0.5;
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk1,vatk2),false,10);
     alarm[0] = 15;
 }
 
@@ -1235,9 +1176,7 @@ else if (mode = "overdrive")
     mode = "overdriver";
     sprite_index = pburst;
     image_speed = 0.5;
-    audio_emitter_position(p1voice,x,y,150);
-    audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-    e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+    p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
     alarm[0] = 45;
 }
 </string>
@@ -1366,7 +1305,9 @@ else if (mode = "overdrive")
           <argument>
             <kind>1</kind>
             <string>audio_emitter_position(p1emit,x,y,150);
+audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
 audio_emitter_position(p1voice,x,y,150);
+audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
 depth = -y;
 if (global.p1hp &lt;= 0)
 {

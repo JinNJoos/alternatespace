@@ -129,24 +129,20 @@ if (player = 1)
             }
         with (o_p2)
         {
-            if (audio_is_playing(c))
+            if (audio_is_playing(p2snd_effect))
             {
-                audio_stop_sound(c);
+                audio_stop_sound(p2snd_effect);
             }
-            if (audio_is_playing(d))
+            if (audio_is_playing(p2snd_atk))
             {
-                audio_stop_sound(d);
+                audio_stop_sound(p2snd_atk);
             }
-            if (audio_is_playing(e))
+            if (audio_is_playing(p2snd_vocal))
             {
-                audio_stop_sound(e);
+                audio_stop_sound(p2snd_vocal);
             }
-            audio_emitter_position(p2emit,x,y,150);
-            audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p2emit,f_firehit,false,10);
-            audio_emitter_position(p2voice,x,y,150);
-            audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p2voice,choose(vhurt1,vhurt2),false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,f_firehit,false,10);
+            p2snd_vocal = audio_play_sound_on(p2voice,choose(vhurt1,vhurt2),false,10);
             mode = "slam"
             alarm[0] = 22;
             motion_set(other.dir,15);
@@ -190,24 +186,20 @@ if (player = 2)
             }
         with (o_p1)
         {
-            if (audio_is_playing(c))
+            if (audio_is_playing(p1snd_effect))
             {
-                audio_stop_sound(c);
+                audio_stop_sound(p1snd_effect);
             }
-            if (audio_is_playing(d))
+            if (audio_is_playing(p1snd_atk))
             {
-                audio_stop_sound(d);
+                audio_stop_sound(p1snd_atk);
             }
-            if (audio_is_playing(e))
+            if (audio_is_playing(p1snd_vocal))
             {
-                audio_stop_sound(e);
+                audio_stop_sound(p1snd_vocal);
             }
-            audio_emitter_position(p1emit,x,y,150);
-            audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p1emit,f_firehit,false,10);
-            audio_emitter_position(p1voice,x,y,150);
-            audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p1voice,choose(vhurt1,vhurt2),false,10);
+            p1snd_effect = audio_play_sound_on(p1emit,f_firehit,false,10);
+            p1snd_vocal = audio_play_sound_on(p1voice,choose(vhurt1,vhurt2),false,10);
             mode = "slam"
             alarm[0] = 22;
             motion_set(other.dir,15);

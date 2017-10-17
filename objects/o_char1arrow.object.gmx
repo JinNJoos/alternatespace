@@ -542,22 +542,27 @@ else if (mode = 'setselect')
         if (set = 'standard')
         {
             set = 'custom';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'cluster')
         {
             set = 'standard';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'brawler')
         {
             set = 'cluster';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'tactical')
         {
             set = 'brawler';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'reverse')
         {
             set = 'tactical';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
     }
     if (keyboard_check_pressed(global.p1_move_right))
@@ -570,22 +575,27 @@ else if (mode = 'setselect')
         if (set = 'tactical')
         {
             set = 'reverse';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'brawler')
         {
             set = 'tactical';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'cluster')
         {
             set = 'brawler';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'standard')
         {
             set = 'cluster';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
         if (set = 'custom')
         {
             set = 'standard';
+            d = audio_play_sound_on(emit,f_select,false,10);
         }
     }
     

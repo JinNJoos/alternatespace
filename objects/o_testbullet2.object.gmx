@@ -634,33 +634,26 @@ if (player = 2)
     {
         if (mode = "guard")
         {
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_block,false,10);
+            if (audio_is_playing(p2snd_effect))
+            {
+                audio_stop_sound(p2snd_effect);
+            }
+            p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
             motion_set(other.direction,2);
             global.p2tp -= 1;
         }
         if not (mode = "guard")
         {
-            if (audio_is_playing(c))
+            if (audio_is_playing(p2snd_effect))
             {
-                audio_stop_sound(c);
+                audio_stop_sound(p2snd_effect);
             }
-            if (audio_is_playing(d))
+            if (audio_is_playing(p2snd_vocal))
             {
-                audio_stop_sound(d);
+                audio_stop_sound(p2snd_vocal);
             }
-            if (audio_is_playing(e))
-            {
-                audio_stop_sound(e);
-            }
-            audio_emitter_position(p2emit,x,y,150);
-            audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p2emit,f_firehit,false,10);
-            audio_emitter_position(p2voice,x,y,150);
-            audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p2voice,choose(vhurt1,vhurt2),false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,f_firehit,false,10);
+            p2snd_vocal = audio_play_sound_on(p2voice,choose(vhurt1,vhurt2),false,10);
             mode = "hurt"
             alarm[0] = 18;
             motion_set(other.direction,5);
@@ -719,33 +712,26 @@ if (player = 2)
     {
         if (mode = "guard")
         {
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_block,false,10);
+            if (audio_is_playing(p1snd_effect))
+            {
+                audio_stop_sound(p1snd_effect);
+            }
+            p1snd_effect = audio_play_sound_on(emit,f_block,false,10);
             motion_set(other.direction,2);
             global.p1tp -= 1;
         }
         if not (mode = "guard")
         {
-            if (audio_is_playing(c))
+            if (audio_is_playing(p1snd_effect))
             {
-                audio_stop_sound(c);
+                audio_stop_sound(p1snd_effect);
             }
-            if (audio_is_playing(d))
+            if (audio_is_playing(p1snd_vocal))
             {
-                audio_stop_sound(d);
+                audio_stop_sound(p1snd_vocal);
             }
-            if (audio_is_playing(e))
-            {
-                audio_stop_sound(e);
-            }
-            audio_emitter_position(p1emit,x,y,150);
-            audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p1emit,f_firehit,false,10);
-            audio_emitter_position(p1voice,x,y,150);
-            audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p1voice,choose(vhurt1,vhurt2),false,10);
+            p1snd_effect = audio_play_sound_on(p1emit,f_firehit,false,10);
+            p1snd_vocal = audio_play_sound_on(p1voice,choose(vhurt1,vhurt2),false,10);
             mode = "hurt"
             alarm[0] = 18;
             motion_set(other.direction,5);

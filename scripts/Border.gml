@@ -9,10 +9,14 @@ if (point_distance(x,y,1000,1000) > 480)
         {
             shake = other.speed*3;
         }
-        emit = audio_emitter_create();
-        audio_emitter_position(emit,x,y,100);
-        audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-        c = audio_play_sound_on(emit,f_slam,false,10);
+        if (object_index = o_p1)
+        {
+            p1snd_effect = audio_play_sound_on(p1emit,f_slam,false,10);
+        }
+        if (object_index = o_p2)
+        {
+            p2snd_effect = audio_play_sound_on(p2emit,f_slam,false,10);
+        }
         motion_set(point_direction(x,y,1000,1000),speed);
         mode = "bounce"
         alarm[0] *= 1.9;
@@ -321,13 +325,13 @@ if (global.p1tp > 300)
         {
             player = 1;
         }
-        if (audio_is_playing(c))
+        if (audio_is_playing(p1snd_effect))
         {
-            audio_stop_sound(c);
+            audio_stop_sound(p1snd_effect);
         }
-        if (audio_is_playing(e))
+        if (audio_is_playing(p1snd_vocal))
         {
-            audio_stop_sound(e);
+            audio_stop_sound(p1snd_vocal);
         }
         if (mode = "charge")
         {
@@ -349,9 +353,9 @@ if (global.p1tp < 0)
     if (mode = "dash")
     or (mode = "guard")
     {
-        if (instance_exists(o_guard))
+        if (instance_exists(p1guard))
         {
-            with (b)
+            with (p1guard)
             {
                 instance_destroy();
             }
@@ -374,12 +378,16 @@ or (gamepad_button_check_pressed(0,global.p1p_dash))
             if (mode = "stand")
             or (mode = "dash")
             {
-                audio_emitter_position(p1emit,x,y,150);
-                audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-                c = audio_play_sound_on(p1emit,f_charge,false,10);
-                audio_emitter_position(p1voice,x,y,150);
-                audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p1voice,vcharge,false,10);
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                if (audio_is_playing(p1snd_vocal))
+                {
+                    audio_stop_sound(p1snd_vocal);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_charge,false,10);
+                p1snd_vocal = audio_play_sound_on(p1voice,vcharge,false,10);
                 mode = "charge";
             }
         }
@@ -392,18 +400,16 @@ or (gamepad_button_check_pressed(0,global.p1p_dash))
             if (mode = "stand")
             or (mode = "charge")
             {
-                if (audio_is_playing(c))
+                if (audio_is_playing(p1snd_effect))
                 {
-                    audio_stop_sound(c);
+                    audio_stop_sound(p1snd_effect);
                 }
-                if (audio_is_playing(e))
+                if (audio_is_playing(p1snd_vocal))
                 {
-                    audio_stop_sound(e);
+                    audio_stop_sound(p1snd_vocal);
                 }
                 global.p1tp -= 5;
-                audio_emitter_position(p1emit,x,y,150);
-                audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-                f = audio_play_sound_on(p1emit,f_dash,false,10);
+                p1snd_effect = audio_play_sound_on(p1emit,f_dash,false,10);
                 mode = "dash"
             }
         }
@@ -415,13 +421,13 @@ or (gamepad_button_check_released(0,global.p1p_dash))
     if (mode = "charge")
     or (mode = "dash")
     {
-        if (audio_is_playing(c))
+        if (audio_is_playing(p1snd_effect))
         {
-            audio_stop_sound(c);
+            audio_stop_sound(p1snd_effect);
         }
-        if (audio_is_playing(e))
+        if (audio_is_playing(p1snd_vocal))
         {
-            audio_stop_sound(e);
+            audio_stop_sound(p1snd_vocal);
         }
         mode = "stand";
     }
@@ -553,9 +559,11 @@ or (mode = "dash")
                 b = instance_create(x,y,o_guard);
                 b.player = 1;
                 b.aura = global.p1aura;
-                audio_emitter_position(p1voice,x,y,150);
-                audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p1voice,vguard,false,10);
+                if (audio_is_playing(p1snd_vocal))
+                {
+                    audio_stop_sound(p1snd_vocal);
+                }
+                p1snd_vocal = audio_play_sound_on(p1voice,vguard,false,10);
                 mode = "guard";
             }
         }
@@ -564,18 +572,6 @@ or (mode = "dash")
         {
             if (global.p1tp > 25)
             {
-                if (audio_is_playing(c))
-                {
-                    audio_stop_sound(c);
-                }
-                if (audio_is_playing(d))
-                {
-                    audio_stop_sound(d);
-                }
-                if (audio_is_playing(e))
-                {
-                    audio_stop_sound(e);
-                }
                 global.p1tp -= 25;
                 burst = instance_create(x,y,o_burst);
                 burst.player = 1;
@@ -597,9 +593,11 @@ or (mode = "dash")
                     }
                 }
                 }
-                audio_emitter_position(p1voice,x,y,150);
-                audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+                if (audio_is_playing(p1snd_vocal))
+                {
+                    audio_stop_sound(p1snd_vocal);
+                }
+                p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
                 mode = "burst";
                 alarm[0] = 30;
             }
@@ -621,18 +619,6 @@ or (mode = "stuck")
         {
             if (global.p1tp > 75)
             {
-                if (audio_is_playing(c))
-                {
-                    audio_stop_sound(c);
-                }
-                if (audio_is_playing(d))
-                {
-                    audio_stop_sound(d);
-                }
-                if (audio_is_playing(e))
-                {
-                    audio_stop_sound(e);
-                }
                 global.p1tp -= 75;
                 burst = instance_create(x,y,o_burst);
                 burst.player = 1;
@@ -654,9 +640,11 @@ or (mode = "stuck")
                     }
                 }
                 }
-                audio_emitter_position(p1voice,x,y,150);
-                audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
+                if (audio_is_playing(p1snd_vocal))
+                {
+                    audio_stop_sound(p1snd_vocal);
+                }
+                p1snd_vocal = audio_play_sound_on(p1voice,choose(vatk3,vatk4),false,10);
                 mode = "burst";
                 alarm[0] = 30;
             }
@@ -966,13 +954,13 @@ if (global.p2tp > 300)
         {
             player = 2;
         }
-        if (audio_is_playing(c))
+        if (audio_is_playing(p2snd_effect))
         {
-            audio_stop_sound(c);
+            audio_stop_sound(p2snd_effect);
         }
-        if (audio_is_playing(e))
+        if (audio_is_playing(p2snd_vocal))
         {
-            audio_stop_sound(e);
+            audio_stop_sound(p2snd_vocal);
         }
         if (mode = "charge")
         {
@@ -1019,12 +1007,16 @@ or (gamepad_button_check_pressed(1,global.p2p_dash))
             if (mode = "stand")
             or (mode = "dash")
             {
-                audio_emitter_position(p2emit,x,y,150);
-                audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-                c = audio_play_sound_on(p2emit,f_charge,false,10);
-                audio_emitter_position(p2voice,x,y,150);
-                audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p2voice,vcharge,false,10);
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                if (audio_is_playing(p2snd_vocal))
+                {
+                    audio_stop_sound(p2snd_vocal);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_charge,false,10);
+                p2snd_vocal = audio_play_sound_on(p2voice,vcharge,false,10);
                 mode = "charge";
             }
         }
@@ -1037,18 +1029,17 @@ or (gamepad_button_check_pressed(1,global.p2p_dash))
             if (mode = "stand")
             or (mode = "charge")
             {
-                if (audio_is_playing(c))
+
+                if (audio_is_playing(p2snd_effect))
                 {
-                    audio_stop_sound(c);
+                    audio_stop_sound(p2snd_effect);
                 }
-                if (audio_is_playing(e))
+                if (audio_is_playing(p2snd_vocal))
                 {
-                    audio_stop_sound(e);
+                    audio_stop_sound(p2snd_vocal);
                 }
                 global.p2tp -= 5;
-                audio_emitter_position(p2emit,x,y,150);
-                audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-                f = audio_play_sound_on(p2emit,f_dash,false,10);
+                p2snd_effect = audio_play_sound_on(p2emit,f_dash,false,10);
                 mode = "dash"
             }
         }
@@ -1060,13 +1051,13 @@ or (gamepad_button_check_released(1,global.p2p_dash))
     if (mode = "charge")
     or (mode = "dash")
     {
-        if (audio_is_playing(c))
+        if (audio_is_playing(p2snd_effect))
         {
-            audio_stop_sound(c);
+            audio_stop_sound(p2snd_effect);
         }
-        if (audio_is_playing(e))
+        if (audio_is_playing(p2snd_vocal))
         {
-            audio_stop_sound(e);
+            audio_stop_sound(p2snd_vocal);
         }
         mode = "stand";
     }
@@ -1209,18 +1200,6 @@ or (mode = "dash")
         {
             if (global.p2tp > 25)
             {
-                if (audio_is_playing(c))
-                {
-                    audio_stop_sound(c);
-                }
-                if (audio_is_playing(d))
-                {
-                    audio_stop_sound(d);
-                }
-                if (audio_is_playing(e))
-                {
-                    audio_stop_sound(e);
-                }
                 global.p2tp -= 25;
                 burst = instance_create(x,y,o_burst);
                 burst.player = 2;
@@ -1242,9 +1221,15 @@ or (mode = "dash")
                     }
                 }
                 }
-                audio_emitter_position(p2voice,x,y,150);
-                audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p2voice,choose(vatk3,vatk4),false,10);
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                if (audio_is_playing(p2snd_vocal))
+                {
+                    audio_stop_sound(p2snd_vocal);
+                }
+                p2snd_effect = audio_play_sound_on(p2voice,choose(vatk3,vatk4),false,10);
                 mode = "burst";
                 alarm[0] = 30;
             }
@@ -1266,18 +1251,6 @@ or (mode = "stuck")
         {
             if (global.p2tp > 75)
             {
-                if (audio_is_playing(c))
-                {
-                    audio_stop_sound(c);
-                }
-                if (audio_is_playing(d))
-                {
-                    audio_stop_sound(d);
-                }
-                if (audio_is_playing(e))
-                {
-                    audio_stop_sound(e);
-                }
                 global.p2tp -= 75;
                 burst = instance_create(x,y,o_burst);
                 burst.player = 2;
@@ -1299,9 +1272,15 @@ or (mode = "stuck")
                     }
                 }
                 }
-                audio_emitter_position(p2voice,x,y,150);
-                audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-                e = audio_play_sound_on(p2voice,choose(vatk3,vatk4),false,10);
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                if (audio_is_playing(p2snd_vocal))
+                {
+                    audio_stop_sound(p2snd_vocal);
+                }
+                p2snd_effect = audio_play_sound_on(p2voice,choose(vatk3,vatk4),false,10);
                 mode = "burst";
                 alarm[0] = 30;
             }
@@ -2503,10 +2482,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 7;
-        if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
 }
 
@@ -2526,10 +2515,20 @@ or (gamepad_button_check_pressed(1,argument2))
             if (object_index = o_p1)
             {
                 global.p1tp -= 15;
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
             }
             if (object_index = o_p2)
             {
                 global.p2tp -= 15;
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
             }
             mode = "blast1";
             sprite_index = paim;
@@ -2549,10 +2548,6 @@ or (gamepad_button_check_pressed(1,argument2))
             }
             alarm[0] = -1;
             alarm[1] = 28;
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_atkcharge,false,10);
         }
     }
 }
@@ -2904,10 +2899,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 7;
-        if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
 }
 
@@ -2932,10 +2937,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 7;
-        if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
 }
 
@@ -3044,10 +3059,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 10;
-        if (audio_is_playing(f_atkcharge))
-        {
-            audio_stop_sound(f_atkcharge);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
     if (mode = "melee2")
     {
@@ -3071,10 +3096,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 10;
-        if (audio_is_playing(f_atkcharge))
-        {
-            audio_stop_sound(f_atkcharge);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
     if (mode = "melee3")
     {
@@ -3098,10 +3133,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 10;
-        if (audio_is_playing(f_atkcharge))
-        {
-            audio_stop_sound(f_atkcharge);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
 }
 
@@ -3121,10 +3166,20 @@ or (gamepad_button_check_pressed(1,argument2))
             if (object_index = o_p1)
             {
                 global.p1tp -= 12;
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
             }
             if (object_index = o_p2)
             {
                 global.p2tp -= 12;
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
             }
             mode = "melee1";
             sprite_index = pmeleecharge;
@@ -3143,10 +3198,6 @@ or (gamepad_button_check_pressed(1,argument2))
             }
             alarm[0] = -1;
             alarm[1] = 30;
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_atkcharge,false,10);
         }
     }
     if (mode = "meleequickhit1")
@@ -3162,10 +3213,20 @@ or (gamepad_button_check_pressed(1,argument2))
             if (object_index = o_p1)
             {
                 global.p1tp -= 12;
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
             }
             if (object_index = o_p2)
             {
                 global.p2tp -= 12;
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
             }
             mode = "melee2";
             image_angle = point_direction(x,y,argument1.x,argument1.y)
@@ -3182,10 +3243,6 @@ or (gamepad_button_check_pressed(1,argument2))
             }
             alarm[0] = -1;
             alarm[1] = 30;
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_atkcharge,false,10);
         }
     }
     if (mode = "meleequickhit2")
@@ -3201,10 +3258,20 @@ or (gamepad_button_check_pressed(1,argument2))
             if (object_index = o_p1)
             {
                 global.p1tp -= 12;
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
             }
             if (object_index = o_p2)
             {
                 global.p2tp -= 12;
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
             }
             mode = "melee3";
             image_angle = point_direction(x,y,argument1.x,argument1.y)
@@ -3221,10 +3288,6 @@ or (gamepad_button_check_pressed(1,argument2))
             }
             alarm[0] = -1;
             alarm[1] = 30;
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_atkcharge,false,10);
         }
     }
 }
@@ -3441,10 +3504,20 @@ or (gamepad_button_check_released(1,argument2))
         }
         alarm[0] = -1;
         alarm[1] = 7;
-        if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
+            if (object_index = o_p1)
+            {
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+            }
+            if (object_index = o_p2)
+            {
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+            }
     }
 }
 
@@ -3464,10 +3537,20 @@ or (gamepad_button_check_pressed(1,argument2))
             if (object_index = o_p1)
             {
                 global.p1tp -= 16;
+                if (audio_is_playing(p1snd_effect))
+                {
+                    audio_stop_sound(p1snd_effect);
+                }
+                p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
             }
             if (object_index = o_p2)
             {
                 global.p2tp -= 16;
+                if (audio_is_playing(p2snd_effect))
+                {
+                    audio_stop_sound(p2snd_effect);
+                }
+                p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
             }
             mode = "grab";
             sprite_index = paim;
@@ -3487,10 +3570,6 @@ or (gamepad_button_check_pressed(1,argument2))
             }
             alarm[0] = -1;
             alarm[1] = 24;
-            emit = audio_emitter_create();
-            audio_emitter_position(emit,x,y,150);
-            audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-            d = audio_play_sound_on(emit,f_atkcharge,false,10);
         }
     }
 }
@@ -3678,9 +3757,7 @@ or (gamepad_button_check_pressed(1,argument2))
                 warp = instance_create(x,y,o_testteleport);
                 if (argument1 = o_p2)
                 {
-                    audio_emitter_position(p1emit,x,y,150);
-                    audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-                    g = audio_play_sound_on(p1emit,f_teleport,false,10);
+                    p2snd_warp = audio_play_sound_on(p1emit,f_teleport,false,10);
                     fake = instance_create(x,y,o_testillusion);
                     with (fake)
                     {
@@ -3725,9 +3802,7 @@ or (gamepad_button_check_pressed(1,argument2))
                 }
                 if (argument1 = o_p1)
                 {
-                    audio_emitter_position(p2emit,x,y,150);
-                    audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-                    g = audio_play_sound_on(p2emit,f_teleport,false,10);
+                    p1snd_warp = audio_play_sound_on(p2emit,f_teleport,false,10);
                     fake = instance_create(x,y,o_testillusion);
                     with (fake)
                     {
@@ -3913,10 +3988,20 @@ or (gamepad_button_check_pressed(1,argument2))
                     if (object_index = o_p1)
                     {
                         global.p1tp -= 20;
+                        if (audio_is_playing(p1snd_effect))
+                        {
+                            audio_stop_sound(p1snd_effect);
+                        }
+                        p1snd_effect = audio_play_sound_on(p1emit,f_atkcharge,false,10);
                     }
                     if (object_index = o_p2)
                     {
                         global.p2tp -= 20;
+                        if (audio_is_playing(p2snd_effect))
+                        {
+                            audio_stop_sound(p2snd_effect);
+                        }
+                        p2snd_effect = audio_play_sound_on(p2emit,f_atkcharge,false,10);
                     }
                     mode = "overdrive";
                     sprite_index = pcharge;
@@ -3933,10 +4018,6 @@ or (gamepad_button_check_pressed(1,argument2))
                     }
                     alarm[0] = -1
                     alarm[1] = 30;
-                    emit = audio_emitter_create();
-                    audio_emitter_position(emit,x,y,150);
-                    audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-                    d = audio_play_sound_on(emit,f_atkcharge,false,10);
                 }
             }
             else if (overdrive = 2)
@@ -3944,16 +4025,20 @@ or (gamepad_button_check_pressed(1,argument2))
                 overdrive = 1;
                 if (object_index = o_p1)
                 {
-                    audio_emitter_position(p1emit,x,y,150);
-                    audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-                    c = audio_play_sound_on(p1emit,f_overheat,false,10);
+                    if (audio_is_playing(p1snd_effect))
+                    {
+                        audio_stop_sound(p1snd_effect);
+                    }
+                    p1snd_effect = audio_play_sound_on(p1emit,f_overheat,false,10);
                     motion_set(point_direction(o_p2.x,o_p2.y,x,y),1);
                 }
                 if (object_index = o_p2)
                 {
-                    audio_emitter_position(p2emit,x,y,150);
-                    audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-                    c = audio_play_sound_on(p2emit,f_overheat,false,10);
+                    if (audio_is_playing(p2snd_effect))
+                    {
+                        audio_stop_sound(p2snd_effect);
+                    }
+                    p1snd_effect = audio_play_sound_on(p1emit,f_overheat,false,10);
                     motion_set(point_direction(o_p1.x,o_p1.y,x,y),1);
                 }
                 mode = "hurt"
