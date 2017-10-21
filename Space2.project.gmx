@@ -220,6 +220,7 @@
         <sprite>sprites\s_rematch</sprite>
         <sprite>sprites\s_newsetup</sprite>
       </sprites>
+      <sprite>sprites\s_mainmenuarrow</sprite>
     </sprites>
     <sprites name="Gameplay">
       <sprites name="Characters">
@@ -358,6 +359,7 @@
         <object>objects\o_endgame</object>
         <object>objects\o_menureturn</object>
         <object>objects\o_menufade</object>
+        <object>objects\o_mainmenuarrow</object>
       </objects>
       <objects name="Options">
         <object>objects\o_graphics</object>
@@ -369,10 +371,10 @@
           <object>objects\o_particles</object>
           <object>objects\o_interface</object>
           <object>objects\o_grid</object>
+          <object>objects\o_moveset</object>
           <object>objects\o_directionals</object>
           <object>objects\o_coordinates</object>
           <object>objects\o_speedometer</object>
-          <object>objects\o_moveset</object>
           <object>objects\o_status</object>
           <objects name="Samples">
             <object>objects\o_samples</object>

@@ -31,7 +31,7 @@ image_angle = point_direction(x,y,o_samplep2.x,o_samplep2.y);
 repeat(70)
 {
     dir = random(360);
-    len = random(80);
+    len = 5+random(75);
     instance_create(((x+o_samplep1.x)/2)+lengthdir_x(len,dir),((y+o_samplep1.y)/2)+lengthdir_y(len,dir),o_samplespark)
 }
 </string>

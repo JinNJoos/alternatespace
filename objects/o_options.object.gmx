@@ -98,6 +98,15 @@ if (speed = 0)
     }
     create = 0
     x = (round(x));
+    if (room = r_graphics)
+    or (room = r_sounds)
+    or (room = r_controls)
+    {
+        if not (instance_exists(o_mainmenuarrow))
+        {
+            instance_create(x,y,o_mainmenuarrow);
+        }
+    }
 }
 </string>
           </argument>
@@ -161,6 +170,29 @@ if (speed = 0)
             click = false;
         }
         d = audio_play_sound_on(emit,f_select,false,10);
+    }
+    if (instance_exists(o_mainmenuarrow))
+    {
+        with (o_mainmenuarrow)
+        {
+            controller = 'mouse';
+            if (room = r_title)
+            {
+                selection = 'title options';
+            }
+            if (room = r_graphics)
+            {
+                selection = 'graphics options';
+            }
+            if (room = r_sounds)
+            {
+                selection = 'sounds options';
+            }
+            if (room = r_controls)
+            {
+                selection = 'controls options';
+            }
+        }
     }
 }
 </string>

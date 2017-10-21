@@ -18,12 +18,12 @@ outlinecol = argument6;
 prec = draw_get_color();
 
 draw_set_color(outlinecol);
-draw_text_ext_transformed(xx+1*(view_wview/1280),yy,str,sep,w,(view_wview/1280),(view_hview/720),0);
-draw_text_ext_transformed(xx-1*(view_wview/1280),yy,str,sep,w,(view_wview/1280),(view_hview/720),0);
-draw_text_ext_transformed(xx,yy+1*(view_hview/720),str,sep,w,(view_wview/1280),(view_hview/720),0);
-draw_text_ext_transformed(xx,yy-1*(view_hview/720),str,sep,w,(view_wview/1280),(view_hview/720),0);
+draw_text_ext_transformed(xx+1*(view_wview/640),yy,str,sep,w,(view_wview/640),(view_hview/360),0);
+draw_text_ext_transformed(xx-1*(view_wview/640),yy,str,sep,w,(view_wview/640),(view_hview/360),0);
+draw_text_ext_transformed(xx,yy+1*(view_hview/360),str,sep,w,(view_wview/640),(view_hview/360),0);
+draw_text_ext_transformed(xx,yy-1*(view_hview/360),str,sep,w,(view_wview/640),(view_hview/360),0);
 
 draw_set_color(insidecol);
-draw_text_ext_transformed(xx,yy,str,sep,w,(view_wview/1280),(view_hview/720),0);
+draw_text_ext_transformed(xx,yy,str,sep,w,(view_wview/640),(view_hview/360),0);
 
 draw_set_color(prec);

@@ -25,13 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>emit = audio_emitter_create();
+            <string>var xx, yy;
+
+key1 = global.p1_tech_a;
+Inputcheckkey1();
+key2 = global.p1_tech_b;
+Inputcheckkey2();
+pad1 = gp_face1;
+Inputcheckpad1();
+pad2 = gp_face2;
+Inputcheckpad2();
+
+emit = audio_emitter_create();
 audio_emitter_position(emit,0,0,100);
 audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
 
 global.s_music = audio_emitter_create()
 audio_emitter_gain(global.s_music,(global.master/100)*(global.music/100));
 global.menumusic = audio_play_sound_on(global.s_music,f_preparation,true,10);
+
+image_speed = 0.25;
 
 mode = 'pause';
 alarm[0] = 100;
@@ -109,13 +122,13 @@ if (mode = 'charselect')
 {
     if (global.p1char = 'loz')
     {
-    x = o_lozicon.x - 10
-    y = o_lozicon.y + 50
+    xx = o_lozicon.x - 10
+    yy = o_lozicon.y + 50
     }
     if (global.p1char = 'zer')
     {
-    x = o_zericon.x - 10
-    y = o_zericon.y + 50
+    xx = o_zericon.x - 10
+    yy = o_zericon.y + 50
     }
 
     if (keyboard_check_pressed(global.p1_move_left))
@@ -171,8 +184,8 @@ if (mode = 'charselect')
 else if (mode = 'ready1')
 or (mode = 'standby1')
 {
-    x = o_selectready.x - 10
-    y = o_selectready.y + 20
+    xx = o_selectready.x - 10
+    yy = o_selectready.y + 20
     if (o_char2arrow.mode = 'ready1')
     {
         with (o_tabchroma)
@@ -211,38 +224,38 @@ else if (mode = 'paletteselect')
     
     if (global.p1_pal = 0)
     {
-        x = o_pal1.x - 10;
-        y = o_pal1.y + 30;
+        xx = o_pal1.x - 10;
+        yy = o_pal1.y + 30;
     }
     if (global.p1_pal = 1)
     {
-        x = o_pal2.x - 10;
-        y = o_pal2.y + 30;
+        xx = o_pal2.x - 10;
+        yy = o_pal2.y + 30;
     }
     if (global.p1_pal = 2)
     {
-        x = o_pal3.x - 10;
-        y = o_pal3.y + 30;
+        xx = o_pal3.x - 10;
+        yy = o_pal3.y + 30;
     }
     if (global.p1_pal = 3)
     {
-        x = o_pal4.x - 10;
-        y = o_pal4.y + 30;
+        xx = o_pal4.x - 10;
+        yy = o_pal4.y + 30;
     }
     if (global.p1_pal = 4)
     {
-        x = o_pal5.x - 10;
-        y = o_pal5.y + 30;
+        xx = o_pal5.x - 10;
+        yy = o_pal5.y + 30;
     }
     if (global.p1_pal = 5)
     {
-        x = o_pal6.x - 10;
-        y = o_pal6.y + 30;
+        xx = o_pal6.x - 10;
+        yy = o_pal6.y + 30;
     }
     if (global.p1_pal = 6)
     {
-        x = o_pal7.x - 10;
-        y = o_pal7.y + 30;
+        xx = o_pal7.x - 10;
+        yy = o_pal7.y + 30;
     }
     
     if (keyboard_check_pressed(global.p1_move_left))
@@ -279,38 +292,38 @@ else if (mode = 'auraselect')
     
     if (global.p1aura = c_white)
     {
-    x = o_colorwhite.x - 10
-    y = o_colorwhite.y + 30
+    xx = o_colorwhite.x - 10
+    yy = o_colorwhite.y + 30
     }
     if (global.p1aura = c_fuchsia)
     {
-    x = o_colorviolet.x - 10
-    y = o_colorviolet.y + 30
+    xx = o_colorviolet.x - 10
+    yy = o_colorviolet.y + 30
     }
     if (global.p1aura = c_aqua)
     {
-    x = o_colorblue.x - 10
-    y = o_colorblue.y + 30
+    xx = o_colorblue.x - 10
+    yy = o_colorblue.y + 30
     }
     if (global.p1aura = c_lime)
     {
-    x = o_colorgreen.x - 10
-    y = o_colorgreen.y + 30
+    xx = o_colorgreen.x - 10
+    yy = o_colorgreen.y + 30
     }
     if (global.p1aura = c_yellow)
     {
-    x = o_coloryellow.x - 10
-    y = o_coloryellow.y + 30
+    xx = o_coloryellow.x - 10
+    yy = o_coloryellow.y + 30
     }
     if (global.p1aura = c_orange)
     {
-    x = o_colororange.x - 10
-    y = o_colororange.y + 30
+    xx = o_colororange.x - 10
+    yy = o_colororange.y + 30
     }
     if (global.p1aura = c_red)
     {
-    x = o_colorred.x - 10
-    y = o_colorred.y + 30
+    xx = o_colorred.x - 10
+    yy = o_colorred.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_move_left))
@@ -402,8 +415,8 @@ else if (mode = 'auraselect')
 else if (mode = 'ready2')
 or (mode = 'standby2')
 {
-    x = o_selectready.x - 10
-    y = o_selectready.y + 20
+    xx = o_selectready.x - 10
+    yy = o_selectready.y + 20
     if (o_char2arrow.mode = 'ready2')
     {
         with (o_tabtechs)
@@ -440,8 +453,8 @@ else if (mode = 'setselect')
         global.p1skill_d = 'none';
         global.p1skill_e = 'none';
         global.p1skill_f = 'none';
-        x = o_setcustom.x - 10
-        y = o_setcustom.y + 30
+        xx = o_setcustom.x - 10
+        yy = o_setcustom.y + 30
     }
     if (set = 'standard')
     {
@@ -451,8 +464,8 @@ else if (mode = 'setselect')
         global.p1skill_d = tech_testpunch1;
         global.p1skill_e = tech_testpunch3;
         global.p1skill_f = tech_testreflect;
-        x = o_setstandard.x - 10
-        y = o_setstandard.y + 30
+        xx = o_setstandard.x - 10
+        yy = o_setstandard.y + 30
     }
     if (set = 'cluster')
     {
@@ -462,8 +475,8 @@ else if (mode = 'setselect')
         global.p1skill_d = tech_testpunch4;
         global.p1skill_e = tech_testrevector;
         global.p1skill_f = tech_testduplicate;
-        x = o_setcluster.x - 10
-        y = o_setcluster.y + 30
+        xx = o_setcluster.x - 10
+        yy = o_setcluster.y + 30
     }
     if (set = 'brawler')
     {
@@ -473,8 +486,8 @@ else if (mode = 'setselect')
         global.p1skill_d = tech_testgrapple;
         global.p1skill_e = tech_testcounter;
         global.p1skill_f = tech_testoverdrive;
-        x = o_setbrawler.x - 10
-        y = o_setbrawler.y + 30
+        xx = o_setbrawler.x - 10
+        yy = o_setbrawler.y + 30
     }
     if (set = 'tactical')
     {
@@ -484,8 +497,8 @@ else if (mode = 'setselect')
         global.p1skill_d = tech_testpunch2;
         global.p1skill_e = tech_testreflect;
         global.p1skill_f = tech_testrevector;
-        x = o_settactical.x - 10
-        y = o_settactical.y + 30
+        xx = o_settactical.x - 10
+        yy = o_settactical.y + 30
     }
     if (set = 'reverse')
     {
@@ -495,8 +508,8 @@ else if (mode = 'setselect')
         global.p1skill_d = tech_testpunch4;
         global.p1skill_e = tech_testcounter;
         global.p1skill_f = tech_testtrap;
-        x = o_setreverse.x - 10
-        y = o_setreverse.y + 30
+        xx = o_setreverse.x - 10
+        yy = o_setreverse.y + 30
     }
     
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -627,93 +640,93 @@ else if (mode = 'skillselectA')
     
     if (global.p1skill_a = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_a = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_a = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_a = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_a = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_a = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_a = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_a = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_a = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_a = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_a = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_a = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_a = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_a = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_a = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_a = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_a = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_a = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -1098,93 +1111,93 @@ else if (mode = 'skillselectB')
     
     if (global.p1skill_b = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_b = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_b = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_b = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_b = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_b = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_b = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_b = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_b = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_b = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_b = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_b = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_b = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_b = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_b = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_b = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_b = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_b = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -1572,93 +1585,93 @@ else if (mode = 'skillselectC')
     
     if (global.p1skill_c = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_c = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_c = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_c = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_c = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_c = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_c = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_c = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_c = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_c = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_c = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_c = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_c = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_c = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_c = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_c = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_c = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_c = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -2047,93 +2060,93 @@ else if (mode = 'skillselectD')
     
     if (global.p1skill_d = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_d = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_d = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_d = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_d = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_d = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_d = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_d = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_d = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_d = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_d = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_d = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_d = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_d = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_d = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_d = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_d = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_d = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -2523,93 +2536,93 @@ else if (mode = 'skillselectE')
     
     if (global.p1skill_e = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_e = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_e = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_e = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_e = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_e = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_e = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_e = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_e = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_e = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_e = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_e = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_e = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_e = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_e = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_e = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_e = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_e = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -3001,93 +3014,93 @@ else if (mode = 'skillselectF')
     
     if (global.p1skill_f = tech_testblast)
     {
-    x = o_iconschot.x - 10
-    y = o_iconschot.y + 30
+    xx = o_iconschot.x - 10
+    yy = o_iconschot.y + 30
     }
     if (global.p1skill_f = tech_testblast2)
     {
-    x = o_iconrfire.x - 10
-    y = o_iconrfire.y + 30
+    xx = o_iconrfire.x - 10
+    yy = o_iconrfire.y + 30
     }
     if (global.p1skill_f = tech_testlaser)
     {
-    x = o_iconrlaser.x - 10
-    y = o_iconrlaser.y + 30
+    xx = o_iconrlaser.x - 10
+    yy = o_iconrlaser.y + 30
     }
     if (global.p1skill_f = tech_testblast3)
     {
-    x = o_iconsshot.x - 10
-    y = o_iconsshot.y + 30
+    xx = o_iconsshot.x - 10
+    yy = o_iconsshot.y + 30
     }
     if (global.p1skill_f = tech_testblast4)
     {
-    x = o_iconcblast.x - 10
-    y = o_iconcblast.y + 30
+    xx = o_iconcblast.x - 10
+    yy = o_iconcblast.y + 30
     }
     if (global.p1skill_f = tech_testblast5)
     {
-    x = o_iconcorb.x - 10
-    y = o_iconcorb.y + 30
+    xx = o_iconcorb.x - 10
+    yy = o_iconcorb.y + 30
     }
     if (global.p1skill_f = tech_testpunch1)
     {
-    x = o_iconphits.x - 10
-    y = o_iconphits.y + 30
+    xx = o_iconphits.x - 10
+    yy = o_iconphits.y + 30
     }
     if (global.p1skill_f = tech_testpunch2)
     {
-    x = o_iconrtaps.x - 10
-    y = o_iconrtaps.y + 30
+    xx = o_iconrtaps.x - 10
+    yy = o_iconrtaps.y + 30
     }
     if (global.p1skill_f = tech_testpunch3)
     {
-    x = o_iconrtackle.x - 10
-    y = o_iconrtackle.y + 30
+    xx = o_iconrtackle.x - 10
+    yy = o_iconrtackle.y + 30
     }
     if (global.p1skill_f = tech_testpunch4)
     {
-    x = o_iconwswing.x - 10
-    y = o_iconwswing.y + 30
+    xx = o_iconwswing.x - 10
+    yy = o_iconwswing.y + 30
     }
     if (global.p1skill_f = tech_testgrapple)
     {
-    x = o_icongrab.x - 10
-    y = o_icongrab.y + 30
+    xx = o_icongrab.x - 10
+    yy = o_icongrab.y + 30
     }
     if (global.p1skill_f = tech_testcounter)
     {
-    x = o_iconcounter.x - 10
-    y = o_iconcounter.y + 30
+    xx = o_iconcounter.x - 10
+    yy = o_iconcounter.y + 30
     }
     if (global.p1skill_f = tech_testtrap)
     {
-    x = o_iconshackles.x - 10
-    y = o_iconshackles.y + 30
+    xx = o_iconshackles.x - 10
+    yy = o_iconshackles.y + 30
     }
     if (global.p1skill_f = tech_testreflect)
     {
-    x = o_iconreflect.x - 10
-    y = o_iconreflect.y + 30
+    xx = o_iconreflect.x - 10
+    yy = o_iconreflect.y + 30
     }
     if (global.p1skill_f = tech_testteleport)
     {
-    x = o_iconteleport.x - 10
-    y = o_iconteleport.y + 30
+    xx = o_iconteleport.x - 10
+    yy = o_iconteleport.y + 30
     }
     if (global.p1skill_f = tech_testrevector)
     {
-    x = o_iconvector.x - 10
-    y = o_iconvector.y + 30
+    xx = o_iconvector.x - 10
+    yy = o_iconvector.y + 30
     }
     if (global.p1skill_f = tech_testduplicate)
     {
-    x = o_iconclone.x - 10
-    y = o_iconclone.y + 30
+    xx = o_iconclone.x - 10
+    yy = o_iconclone.y + 30
     }
     if (global.p1skill_f = tech_testoverdrive)
     {
-    x = o_icondrive.x - 10
-    y = o_icondrive.y + 30
+    xx = o_icondrive.x - 10
+    yy = o_icondrive.y + 30
     }
 
     if (keyboard_check_pressed(global.p1_tech_b))
@@ -3473,8 +3486,8 @@ else if (mode = 'skillselectF')
 else if (mode = 'ready3')
 or (mode = 'standby3')
 {
-    x = o_selectready.x - 10
-    y = o_selectready.y + 20
+    xx = o_selectready.x - 10
+    yy = o_selectready.y + 20
     if (o_char2arrow.mode = 'ready3')
     {
         with (o_tabstages)
@@ -3540,18 +3553,18 @@ if (mode = 'stageselect')
 {
     if (global.arena = "Random")
     {
-        x = o_stagerandom.x
-        y = o_stagerandom.y + 40
+        xx = o_stagerandom.x
+        yy = o_stagerandom.y + 40
     }
     if (global.arena = "Outer Space")
     {
-        x = o_stagespace.x
-        y = o_stagespace.y + 40
+        xx = o_stagespace.x
+        yy = o_stagespace.y + 40
     }
     if (global.arena = "Big Sky")
     {
-        x = o_stagesky.x
-        y = o_stagesky.y + 40
+        xx = o_stagesky.x
+        yy = o_stagesky.y + 40
     }
     
     if (keyboard_check_pressed(global.p1_move_left))
@@ -3595,8 +3608,8 @@ if (mode = 'stageselect')
         }
     }
     
-    if (keyboard_check_pressed(vk_enter))
-    or (gamepad_button_check_pressed(0,gp_start))
+    if (keyboard_check_pressed(global.p1_tech_a))
+    or (gamepad_button_check_pressed(0,gp_face1))
     {
         if (global.arena = "Random")
         {
@@ -3730,6 +3743,8 @@ or (gamepad_button_check(0,global.p1p_shift))
 else 
 {
     image_alpha = 1;
+    x -= (x - xx)*0.25;
+    y -= (y - yy)*0.25;
 }
 </string>
           </argument>
@@ -3754,6 +3769,14 @@ else
           <argument>
             <kind>1</kind>
             <string>draw_self();
+if (global.p1input = 'key')
+{
+    draw_text(160,20,"Confirm = " + string(key1) + "#Cancel = " + string(key2));
+}
+if (global.p1input = 'pad')
+{
+    draw_text(160,20,"Confirm = " + string(pad1) + "#Cancel = " + string(pad2));
+}
 </string>
           </argument>
         </arguments>

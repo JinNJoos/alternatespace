@@ -100,7 +100,7 @@ if (global.sampleplayer2 = 'zer')
 draw_set_color(c_black);
 draw_rectangle(view_xview+(view_wview*0.45),view_yview+(view_hview*0.03),view_xview+(view_wview*0.55),view_yview+(view_hview*0.09),false);
 draw_set_color(c_yellow);
-draw_text_ext_transformed(view_xview+(view_wview*0.5),view_yview+(view_hview*0.015),real(149),2,view_wview,view_wview/320,view_hview/180,0)
+draw_text_ext_transformed(view_xview+(view_wview*0.5),view_yview+(view_hview*0.01),real(149),2,view_wview,view_wview/320,view_hview/180,0)
 
 draw_set_color(c_white);
 
@@ -117,7 +117,7 @@ or (global.interface = "Full")
     draw_set_color(c_aqua);
     draw_rectangle(view_xview+(view_wview*0.444),view_yview+(view_hview*0.062),((view_xview+(view_wview*0.444))-((view_wview*(1/4)))),view_yview+(view_hview*0.09),false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(view_xview+(view_wview*0.42),view_yview+(view_hview*0.055),real(300),2,view_wview,view_wview/640,view_hview/360,0)
+    draw_text_ext_transformed(view_xview+(view_wview*0.42),view_yview+(view_hview*0.051),real(300),2,view_wview,view_wview/640,view_hview/360,0)
 }
 
 if (global.moveset = "On")
@@ -144,7 +144,7 @@ or (global.interface = "Full")
     draw_set_color(c_aqua);
     draw_rectangle(view_xview+(view_wview*0.556),view_yview+(view_hview*0.062),((view_xview+(view_wview*0.556))+((view_wview*(1/4)))),view_yview+(view_hview*0.09),false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(view_xview+(view_wview*0.58),view_yview+(view_hview*0.055),real(300),2,view_wview,view_wview/640,view_hview/360,0)
+    draw_text_ext_transformed(view_xview+(view_wview*0.58),view_yview+(view_hview*0.051),real(300),2,view_wview,view_wview/640,view_hview/360,0)
 }
 
 if (global.moveset = "On")

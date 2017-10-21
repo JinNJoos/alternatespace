@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>image_alpha = 0
+image_blend = c_gray
 create = 1
 hspeed = -3
 alarm[0] = 12
@@ -158,6 +159,14 @@ if (speed = 0)
             click = false;
         }
         d = audio_play_sound_on(emit,f_select,false,10);
+    }
+    if (instance_exists(o_mainmenuarrow))
+    {
+        with (o_mainmenuarrow)
+        {
+            controller = 'mouse';
+            selection = 'title tutorial';
+        }
     }
 }
 </string>

@@ -52,6 +52,35 @@ if (click = true)
             room_goto(goto)
         }
     }
+    
+    if (goto = r_charselect)
+    {
+        if (room = r_title)
+        {
+            with (o_title) motion_add(90,0.2); 
+            with (o_tutorial) motion_add(180,0.13);
+            with (o_options) motion_add(180,0.16);
+            with (o_endgame) motion_add(180,0.19);
+        }
+        
+        if (room = r_victory)
+        {
+            with (o_rematch) motion_add(180,0.13);
+            with (o_menureturn2) motion_add(180,0.16);
+        }
+    }
+    
+    if (goto = r_test)
+    {
+        with (o_newsetup) motion_add(180,0.13);
+        with (o_menureturn2) motion_add(180,0.16);
+    }
+    
+    if (goto = r_title)
+    {
+        with (o_rematch) motion_add(180,0.16);
+        with (o_newsetup) motion_add(180,0.13);
+    }
 }
 </string>
           </argument>

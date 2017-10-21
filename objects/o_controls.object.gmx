@@ -85,12 +85,53 @@ if (room = r_options)
 {
     if (mode = "go")
     {
+        if (instance_exists(o_mainmenuarrow))
+        {
+            with (o_mainmenuarrow)
+            {
+                instance_destroy();
+            }
+        }
         y -= distance_to_point(x,13)*0.1;
         if (y &lt;= 20)
         {
             room_goto(r_controls);
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (room = r_options)
+{
+    if (instance_exists(o_mainmenuarrow))
+    {
+        with (o_mainmenuarrow)
+        {
+            controller = 'mouse';
+            selection = 'options controls';
+        }
+    }
+    d = audio_play_sound_on(emit,f_select,false,10);
 }
 </string>
           </argument>
@@ -118,9 +159,6 @@ if (room = r_options)
 {
     if (mode = "wait")
     {
-        mode = "go";
-        d = audio_play_sound_on(emit,f_confirm,false,10);
-        alarm[0] = 30;
         if (instance_exists(o_sounds))
         {
             with (o_sounds)
@@ -135,8 +173,26 @@ if (room = r_options)
                 instance_destroy();
             }
         }
+        if (instance_exists(o_menureturn))
+        {
+            with (o_menureturn)
+            {
+                instance_destroy();
+            }
+        }
+        if (instance_exists(o_mainmenuarrow))
+        {
+            with (o_mainmenuarrow)
+            {
+                instance_destroy();
+            }
+        }
+        mode = "go";
+        d = audio_play_sound_on(emit,f_confirm,false,10);
+        alarm[0] = 30;
     }
 }
+
 </string>
           </argument>
         </arguments>

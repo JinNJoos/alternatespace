@@ -74,6 +74,10 @@ if (speed = 0)
     }
     create = 0
     x = (round(x));
+    if not (instance_exists(o_mainmenuarrow))
+    {
+        instance_create(x,y,o_mainmenuarrow);
+    }
 }
 </string>
           </argument>
@@ -137,6 +141,14 @@ if (speed = 0)
             click = false;
         }
         d = audio_play_sound_on(emit,f_select,false,10);
+    }
+    if (instance_exists(o_mainmenuarrow))
+    {
+        with (o_mainmenuarrow)
+        {
+            controller = 'mouse';
+            selection = 'winner return';
+        }
     }
 }
 </string>

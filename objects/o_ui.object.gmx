@@ -1665,7 +1665,7 @@ draw_text_ext_transformed(display_get_gui_width()/2,display_get_gui_height()*0.9
 draw_set_color(c_black);
 draw_rectangle(display_get_gui_width()*0.45,display_get_gui_height()*0.03,display_get_gui_width()*0.55,display_get_gui_height()*0.09,false);
 draw_set_color(c_yellow);
-draw_text_ext_transformed(display_get_gui_width()*0.5,display_get_gui_height()*0.015,real(ceil(timer/60)),2,640,2,2,0)
+draw_text_ext_transformed(display_get_gui_width()*0.5,display_get_gui_height()*0.01,real(ceil(timer/60)),2,640,2,2,0)
 
 draw_set_color(c_white);
 
@@ -1682,7 +1682,7 @@ or (global.interface = "Full")
     draw_set_color(c_aqua);
     draw_rectangle(display_get_gui_width()*0.45,display_get_gui_height()*0.061,(display_get_gui_width()*0.45)-(global.p1tp/2),display_get_gui_height()*0.09,false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.055,real(floor(global.p1tp)),2,640,1,1,0)
+    draw_text_ext_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.051,real(floor(global.p1tp)),2,640,1,1,0)
 }
 
 if (global.moveset = "On")
@@ -1722,7 +1722,7 @@ or (global.interface = "Full")
     draw_set_color(c_aqua);
     draw_rectangle(display_get_gui_width()*0.55,display_get_gui_height()*0.061,(display_get_gui_width()*0.55)+(global.p2tp/2),display_get_gui_height()*0.09,false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.055,real(floor(global.p2tp)),2,640,1,1,0)
+    draw_text_ext_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.051,real(floor(global.p2tp)),2,640,1,1,0)
 }
 
 if (global.moveset = "On")
