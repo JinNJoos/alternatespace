@@ -255,17 +255,13 @@ if (hit = true)
             if not (instance_exists(o_dmger2))
             {
                 instance_create(other.x,other.y,o_dmger2)
-                with (o_dmger2)
-                {
-                    dmg += 3*o_p1.overdrive;
-                }
+                global.dmg2 = 3*o_p1.overdrive;
+                global.combo2 = 1;
             }
             else if (instance_exists(o_dmger2))
             {
-                with (o_dmger2)
-                {
-                    dmg += 3*o_p1.overdrive;
-                }
+                global.dmg2 += 3*o_p1.overdrive;
+                global.combo2 += 1;
             }
         }
     }
@@ -377,17 +373,13 @@ if (hit = true)
             if not (instance_exists(o_dmger1))
             {
                 instance_create(other.x,other.y,o_dmger1)
-                with (o_dmger1)
-                {
-                    dmg += 3*o_p2.overdrive;
-                }
+                global.dmg1 = 3*o_p2.overdrive;
+                global.combo1 = 1;
             }
             else if (instance_exists(o_dmger1))
             {
-                with (o_dmger1)
-                {
-                    dmg += 3*o_p2.overdrive;
-                }
+                global.dmg1 += 3*o_p2.overdrive;
+                global.combo1 += 1;
             }
         }
     }

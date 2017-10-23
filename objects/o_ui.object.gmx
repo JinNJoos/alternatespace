@@ -31,6 +31,14 @@ emit = audio_emitter_create();
 audio_emitter_position(emit,x,y,100);
 audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
 
+alpha1 = 0;
+alpha2 = 0;
+
+global.dmg1 = 0;
+global.combo1 = 0;
+global.dmg2 = 0;
+global.combo2 = 0;
+
 p1color = c_white;
 p2color = c_white;
 
@@ -1637,6 +1645,45 @@ audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Combo counter display
+
+if (instance_exists(o_dmger1))
+{
+    alpha1 = 1;
+}
+if not (instance_exists(o_dmger1))
+{
+    alpha1 -= 0.02;
+}
+
+if (instance_exists(o_dmger2))
+{
+    alpha2 = 1;
+}
+if not (instance_exists(o_dmger2))
+{
+    alpha2 -= 0.02;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -1656,8 +1703,10 @@ audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(0.5);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
-draw_text_ext_transformed(display_get_gui_width()/2,display_get_gui_height()*0.95,string(floor(audio_sound_get_track_position(global.bgm)))+"/"+string(floor(audio_sound_length(global.bgm))),2,640,1,1,0)
+draw_text_transformed(display_get_gui_width()/2,display_get_gui_height()*0.95,string(floor(audio_sound_get_track_position(global.bgm)))+"/"+string(floor(audio_sound_length(global.bgm))),1,1,0)
 
 //draw_text(100,100,string(view_wview));
 //draw_text(100,120,string(view_hview));
@@ -1665,12 +1714,15 @@ draw_text_ext_transformed(display_get_gui_width()/2,display_get_gui_height()*0.9
 draw_set_color(c_black);
 draw_rectangle(display_get_gui_width()*0.45,display_get_gui_height()*0.03,display_get_gui_width()*0.55,display_get_gui_height()*0.09,false);
 draw_set_color(c_yellow);
-draw_text_ext_transformed(display_get_gui_width()*0.5,display_get_gui_height()*0.01,real(ceil(timer/60)),2,640,2,2,0)
+draw_text_transformed(display_get_gui_width()*0.5,display_get_gui_height()*0.06,real(ceil(timer/60)),2,2,0)
 
 draw_set_color(c_white);
 
 
 draw_sprite_ext(icon_char1,-1,display_get_gui_width()*0.07,display_get_gui_height()*0.11,1,1,0,p1color,0.7)
+
+draw_text_transformed_colour(display_get_gui_width()*0.1,display_get_gui_height()*0.3,string(global.combo2)+" COMBO",1,1,0,c_orange,c_orange,c_orange,c_orange,alpha2);
+draw_text_transformed_colour(display_get_gui_width()*0.1,display_get_gui_height()*0.35,string(global.dmg2)+" DAMAGE",1,1,0,c_orange,c_orange,c_orange,c_orange,alpha2);
 
 if (global.interface = "Overlay")
 or (global.interface = "Full")
@@ -1678,11 +1730,11 @@ or (global.interface = "Full")
     draw_set_color(c_red);
     draw_rectangle(display_get_gui_width()*0.45,display_get_gui_height()*0.03,(display_get_gui_width()*0.45)-(global.p1hp/2),display_get_gui_height()*0.06,false);
     draw_set_color(c_orange);
-    draw_text_ext_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.02,real(floor(global.p1hp)),2,640,1,1,0)
+    draw_text_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.04,real(floor(global.p1hp)),1,1,0)
     draw_set_color(c_aqua);
     draw_rectangle(display_get_gui_width()*0.45,display_get_gui_height()*0.061,(display_get_gui_width()*0.45)-(global.p1tp/2),display_get_gui_height()*0.09,false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.051,real(floor(global.p1tp)),2,640,1,1,0)
+    draw_text_transformed(display_get_gui_width()*0.42,display_get_gui_height()*0.07,real(floor(global.p1tp)),1,1,0)
 }
 
 if (global.moveset = "On")
@@ -1712,17 +1764,20 @@ if (global.moveset = "On")
 
 draw_sprite_ext(icon_char2,-1,display_get_gui_width()*0.93,display_get_gui_height()*0.11,-1,1,0,p2color,0.7)
 
+draw_text_transformed_colour(display_get_gui_width()*0.9,display_get_gui_height()*0.3,string(global.combo1)+" COMBO",1,1,0,c_orange,c_orange,c_orange,c_orange,alpha1);
+draw_text_transformed_colour(display_get_gui_width()*0.9,display_get_gui_height()*0.35,string(global.dmg1)+" DAMAGE",1,1,0,c_orange,c_orange,c_orange,c_orange,alpha1);
+
 if (global.interface = "Overlay")
 or (global.interface = "Full")
 {
     draw_set_color(c_red);
     draw_rectangle(display_get_gui_width()*0.55,display_get_gui_height()*0.03,(display_get_gui_width()*0.55)+(global.p2hp/2),display_get_gui_height()*0.06,false);
     draw_set_color(c_orange);
-    draw_text_ext_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.02,real(floor(global.p2hp)),2,640,1,1,0)
+    draw_text_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.04,real(floor(global.p2hp)),1,1,0)
     draw_set_color(c_aqua);
     draw_rectangle(display_get_gui_width()*0.55,display_get_gui_height()*0.061,(display_get_gui_width()*0.55)+(global.p2tp/2),display_get_gui_height()*0.09,false);
     draw_set_color(c_white);
-    draw_text_ext_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.051,real(floor(global.p2tp)),2,640,1,1,0)
+    draw_text_transformed(display_get_gui_width()*0.58,display_get_gui_height()*0.07,real(floor(global.p2tp)),1,1,0)
 }
 
 if (global.moveset = "On")

@@ -85,12 +85,8 @@ if (mode = "hit")
         with (o_p2)
         {
             mode = "slam";
-            audio_emitter_position(p2emit,x,y,150);
-            audio_emitter_gain(p2emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p2emit,f_smelee1,false,10);
-            audio_emitter_position(p2voice,x,y,150);
-            audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p2voice,choose(vhurt3,vhurt4),false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,choose(f_smeleehit1,f_smeleehit2),false,10);
+            p2snd_vocal = audio_play_sound_on(p2voice,choose(vhurt3,vhurt4),false,10);
             motion_set(point_direction(x,y,o_testthrow.x,o_testthrow.y),15);
             alarm[0] = 30;
             with (new_camera)
@@ -104,17 +100,13 @@ if (mode = "hit")
             if not (instance_exists(o_dmger2))
             {
                 instance_create(other.x,other.y,o_dmger2)
-                with (o_dmger2)
-                {
-                    dmg += 7*o_p1.overdrive;
-                }
+                global.dmg2 = 7*o_p1.overdrive;
+                global.combo2 = 1;
             }
             else if (instance_exists(o_dmger2))
             {
-                with (o_dmger2)
-                {
-                    dmg += 7*o_p1.overdrive;
-                }
+                global.dmg2 += 7*o_p1.overdrive;
+                global.combo2 += 1;
             }
         }
         if (instance_exists(a))
@@ -149,12 +141,8 @@ if (mode = "hit")
         with (o_p1)
         {
             mode = "slam";
-            audio_emitter_position(p1emit,x,y,150);
-            audio_emitter_gain(p1emit,(global.master/100)*(global.effect/100));
-            c = audio_play_sound_on(p1emit,f_smelee1,false,10);
-            audio_emitter_position(p1voice,x,y,150);
-            audio_emitter_gain(p1voice,(global.master/100)*(global.voice/100));
-            e = audio_play_sound_on(p1voice,choose(vhurt3,vhurt4),false,10);
+            p1snd_effect = audio_play_sound_on(p1emit,choose(f_smeleehit1,f_smeleehit2),false,10);
+            p1snd_vocal = audio_play_sound_on(p1voice,choose(vhurt3,vhurt4),false,10);
             motion_set(point_direction(x,y,o_testthrow.x,o_testthrow.y),15);
             alarm[0] = 30;
             with (new_camera)
@@ -168,17 +156,13 @@ if (mode = "hit")
             if not (instance_exists(o_dmger1))
             {
                 instance_create(other.x,other.y,o_dmger1)
-                with (o_dmger1)
-                {
-                    dmg += 7*o_p2.overdrive;
-                }
+                global.dmg1 = 7*o_p2.overdrive;
+                global.combo1 = 1;
             }
             else if (instance_exists(o_dmger1))
             {
-                with (o_dmger1)
-                {
-                    dmg += 7*o_p2.overdrive;
-                }
+                global.dmg1 += 7*o_p2.overdrive;
+                global.combo1 += 1;
             }
         }
         if (instance_exists(a))

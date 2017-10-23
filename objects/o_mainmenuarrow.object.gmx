@@ -651,14 +651,14 @@ if (room = r_sounds)
 
 if (room = r_controls)
 {
-    if (instance_exists(o_keycontrol))
+    if (keyboard_check_pressed(vk_down))
+    or (gamepad_button_check_pressed(0,global.p1p_move_down))
     {
-        exit;
-    }
-    else if not(instance_exists(o_keycontrol))
-    {
-        if (keyboard_check_pressed(vk_down))
-        or (gamepad_button_check_pressed(0,global.p1p_move_down))
+        if (instance_exists(o_keycontrol))
+        {
+            exit;
+        }
+        else
         {
             switch(selection)
             {
@@ -770,9 +770,16 @@ if (room = r_controls)
                 break;
             }
         }
+    }
         
-        if (keyboard_check_pressed(vk_up))
-        or (gamepad_button_check_pressed(0,global.p1p_move_up))
+    if (keyboard_check_pressed(vk_up))
+    or (gamepad_button_check_pressed(0,global.p1p_move_up))
+    {
+        if (instance_exists(o_keycontrol))
+        {
+            exit;
+        }
+        else
         {
             switch(selection)
             {
@@ -877,9 +884,16 @@ if (room = r_controls)
                 break;
             }
         }
+    }
         
-        if (keyboard_check_pressed(vk_right))
-        or (gamepad_button_check_pressed(0,global.p1p_move_right))
+    if (keyboard_check_pressed(vk_right))
+    or (gamepad_button_check_pressed(0,global.p1p_move_right))
+    {
+        if (instance_exists(o_keycontrol))
+        {
+            exit;
+        }
+        else
         {
             switch(selection)
             {
@@ -934,9 +948,16 @@ if (room = r_controls)
                 break;
             }
         }
+    }
         
-        if (keyboard_check_pressed(vk_left))
-        or (gamepad_button_check_pressed(0,global.p1p_move_left))
+    if (keyboard_check_pressed(vk_left))
+    or (gamepad_button_check_pressed(0,global.p1p_move_left))
+    {
+        if (instance_exists(o_keycontrol))
+        {
+            exit;
+        }
+        else
         {
             switch(selection)
             {
@@ -991,9 +1012,16 @@ if (room = r_controls)
                 break;
             }
         }
+    }
         
-        if (keyboard_check_pressed(vk_enter))
-        or (gamepad_button_check_pressed(0,gp_face1))
+    if (keyboard_check_pressed(vk_enter))
+    or (gamepad_button_check_pressed(0,gp_face1))
+    {
+        if (instance_exists(o_keycontrol))
+        {
+            exit;
+        }
+        else
         {
             switch(selection)
             {

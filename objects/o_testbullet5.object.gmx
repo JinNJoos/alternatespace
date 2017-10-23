@@ -565,11 +565,13 @@ or (player = 3)
                     if not (instance_exists(o_dmger2))
                     {
                         instance_create(other.x,other.y,o_dmger2)
-                        o_dmger2.dmg += other.damage*o_p1.overdrive;
+                        global.dmg2 = other.damage*o_p1.overdrive;
+                        global.combo2 = 1;
                     }
                     else if (instance_exists(o_dmger2))
                     {
-                        o_dmger2.dmg += other.damage*o_p1.overdrive;
+                        global.dmg2 += other.damage*o_p1.overdrive;
+                        global.combo2 += 1;
                     }
                 }
             }
@@ -642,11 +644,13 @@ or (player = 4)
                     if not (instance_exists(o_dmger1))
                     {
                         instance_create(other.x,other.y,o_dmger1)
-                        o_dmger1.dmg += other.damage*o_p2.overdrive;
+                        global.dmg1 = other.damage*o_p2.overdrive;
+                        global.combo1 = 1;
                     }
                     else if (instance_exists(o_dmger1))
                     {
-                        o_dmger1.dmg += other.damage*o_p2.overdrive;
+                        global.dmg1 += other.damage*o_p2.overdrive;
+                        global.combo1 += 1;
                     }
                 }
             }

@@ -80,56 +80,86 @@ def_y = y;
     instance_create(428,300,o_iconclone);
     instance_create(500,300,o_icondrive);
     
-    o_char1arrow.mode = 'setselect';
-    if not (global.p1skill_a = 'none')
+    if not (o_char1arrow.set = 'chosen')
     {
-        o_char1arrow.mode = 'skillselectB';
+        o_char1arrow.mode = 'setselect';
     }
-    if not (global.p1skill_b = 'none')
+    else if (o_char1arrow.set = 'chosen')
     {
-        o_char1arrow.mode = 'skillselectC';
-    }
-    if not (global.p1skill_c = 'none')
-    {
-        o_char1arrow.mode = 'skillselectD';
-    }
-    if not (global.p1skill_d = 'none')
-    {
-        o_char1arrow.mode = 'skillselectE';
-    }
-    if not (global.p1skill_e = 'none')
-    {
-        o_char1arrow.mode = 'skillselectF';
-    }
-    if not (global.p1skill_f = 'none')
-    {
-        o_char1arrow.mode = 'ready3';
+        if (global.p1skill_a = 'none')
+        {
+            o_char1arrow.mode = 'skillselectA';
+        }
+        else if (global.p1skill_b = 'none')
+        {
+            o_char1arrow.mode = 'skillselectB';
+        }
+        else if (global.p1skill_c = 'none')
+        {
+            o_char1arrow.mode = 'skillselectC';
+        }
+        else if (global.p1skill_d = 'none')
+        {
+            o_char1arrow.mode = 'skillselectD';
+        }
+        else if (global.p1skill_e = 'none')
+        {
+            o_char1arrow.mode = 'skillselectE';
+        }
+        else if (global.p1skill_f = 'none')
+        {
+            o_char1arrow.mode = 'skillselectF';
+        }
+        else if not (global.p1skill_a = 'none')
+        and not (global.p1skill_b = 'none')
+        and not (global.p1skill_c = 'none')
+        and not (global.p1skill_d = 'none')
+        and not (global.p1skill_e = 'none')
+        and not (global.p1skill_f = 'none')
+        {
+            o_char1arrow.mode = 'ready3';
+        }
     }
     
-    o_char2arrow.mode = 'setselect';
-    if not (global.p2skill_a = 'none')
+    if not (o_char2arrow.set = 'chosen')
     {
-        o_char2arrow.mode = 'skillselectB';
+        o_char2arrow.mode = 'setselect';
     }
-    if not (global.p2skill_b = 'none')
+    else if (o_char2arrow.set = 'chosen')
     {
-        o_char2arrow.mode = 'skillselectC';
-    }
-    if not (global.p2skill_c = 'none')
-    {
-        o_char2arrow.mode = 'skillselectD';
-    }
-    if not (global.p2skill_d = 'none')
-    {
-        o_char2arrow.mode = 'skillselectE';
-    }
-    if not (global.p2skill_e = 'none')
-    {
-        o_char2arrow.mode = 'skillselectF';
-    }
-    if not (global.p2skill_f = 'none')
-    {
-        o_char2arrow.mode = 'ready3';
+        if (global.p2skill_a = 'none')
+        {
+            o_char2arrow.mode = 'skillselectA';
+        }
+        else if (global.p2skill_b = 'none')
+        {
+            o_char2arrow.mode = 'skillselectB';
+        }
+        else if (global.p2skill_c = 'none')
+        {
+            o_char2arrow.mode = 'skillselectC';
+        }
+        else if (global.p2skill_d = 'none')
+        {
+            o_char2arrow.mode = 'skillselectD';
+        }
+        else if (global.p2skill_e = 'none')
+        {
+            o_char2arrow.mode = 'skillselectE';
+        }
+        else if (global.p2skill_f = 'none')
+        {
+            o_char2arrow.mode = 'skillselectF';
+        }
+        else if not (global.p2skill_a = 'none')
+        and not (global.p2skill_b = 'none')
+        and not (global.p2skill_c = 'none')
+        and not (global.p2skill_d = 'none')
+        and not (global.p2skill_e = 'none')
+        and not (global.p2skill_f = 'none')
+        {
+            o_char2arrow.mode = 'ready3';
+        }
     }
 }
 </string>

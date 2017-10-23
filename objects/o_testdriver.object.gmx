@@ -129,18 +129,14 @@ if (image_alpha &lt; 0)
                     {
                         instance_create(other.x,other.y,o_dmger2)
                         value = round(other.image_alpha*20);
-                        with (o_dmger2)
-                        {
-                            dmg += other.value;
-                        }
+                        global.dmg2 = other.value;
+                        global.combo2 = 1;
                     }
                     else if (instance_exists(o_dmger2))
                     {
                         value = round(other.image_alpha*20);
-                        with (o_dmger2)
-                        {
-                            dmg += other.value;
-                        }
+                        global.dmg2 += other.value;
+                        global.combo2 += 1;
                     }
                 }
             }
@@ -212,18 +208,14 @@ if (image_alpha &lt; 0)
                     {
                         instance_create(other.x,other.y,o_dmger1)
                         value = round(other.image_alpha*20);
-                        with (o_dmger1)
-                        {
-                            dmg += other.value;
-                        }
+                        global.dmg1 = other.value;
+                        global.combo1 = 1;
                     }
                     else if (instance_exists(o_dmger1))
                     {
                         value = round(other.image_alpha*20);
-                        with (o_dmger1)
-                        {
-                            dmg += other.value;
-                        }
+                        global.dmg1 += other.value;
+                        global.combo1 += 1;
                     }
                 }
             }

@@ -257,6 +257,7 @@ draw_text(room_width/2,room_height/2,string("Select a new key for ")+string(purp
             <string>var newkey = (keyboard_key);
 
     if (newkey != vk_escape)
+    and (newkey != vk_enter)
     {
         switch(purpose)
         {
@@ -341,9 +342,12 @@ draw_text(room_width/2,room_height/2,string("Select a new key for ")+string(purp
                 o_key_guard_p2.key = newkey;
             break;
         }
+        d = audio_play_sound_on(global.s_effect,f_confirm,false,10);
     }
-    d = audio_play_sound_on(global.s_effect,f_confirm,false,10);
-    instance_destroy();
+    if (newkey != vk_enter)
+    {
+        instance_destroy();
+    }
 </string>
           </argument>
         </arguments>

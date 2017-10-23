@@ -66,7 +66,7 @@ if (click = true)
         if (room = r_victory)
         {
             with (o_rematch) motion_add(180,0.13);
-            with (o_menureturn2) motion_add(180,0.16);
+            with (o_menureturn2) motion_add(180,0.13);
         }
     }
     
