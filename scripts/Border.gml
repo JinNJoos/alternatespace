@@ -33,12 +33,10 @@ if (mode = "lose")
     image_alpha -= 0.005;
     if (global.particles = "On")
     {
-    a = instance_create(x,y,o_testspark);
-    with (a)
-    {
-        motion_set(random(360),random(3));
-        aura = global.p1aura;
-    }
+        recolor = merge_colour(global.p1aura,c_white,0.6);
+        part_type_color1(global.part_sparkle,recolor);
+        part_type_speed(global.part_sparkle,1,3,0,0);
+        part_particles_create(global.part_spark,x,y,global.part_sparkle,1);
     }
 }
 
@@ -299,19 +297,16 @@ if (global.p1tp <= 300)
         global.p1tp += 1.5;
         if (maxaura = false)
         {
-            repeat (global.p1tp/15)
-            {
-                a = instance_create(x,y,o_auraemit);
-                a.player = 1;
-                a.dir = random(360);
-                with (a)
-                {
-                    aura = global.p1aura;
-                    image_angle = dir;
-                    image_xscale = random(global.p1tp/60);
-                    motion_set(dir,((global.p1tp/100)*random(4))+1);
-                }
-            }
+            var _dir = random(360);
+            var _len = 30 + (30*(global.p1tp/150));
+            var _xx = lengthdir_x(_len,_dir);
+            var _yy = lengthdir_y(_len,_dir);
+            part_type_direction(glow3,_dir+180,_dir+180,0,0);
+            part_type_speed(glow3,0,0,0.1+(0.1*(global.p1tp/100)),0);
+            part_type_alpha3(glow3,0,0.1+((global.p1tp/300)*0.9),0);
+            var _scale = 0.1+(0.2*(global.p1tp/300));
+            part_type_size(glow3,_scale,_scale,0,0);
+            part_particles_create(aura,x+_xx,y+_yy,glow3,3)
         }
     }
 }
@@ -578,20 +573,10 @@ or (mode = "dash")
                 burst.aura = global.p1aura;
                 if (global.particles = "On")
                 {
-                repeat(200)
-                {
-                    a = instance_create(x,y,o_testspark);
-                    a.player = 1;
-                    a.dir = random(360);
-                    with (a)
-                    {
-                        image_alpha = random(1);
-                        aura = global.p1aura;
-                        image_angle = dir;
-                        image_xscale = 1+random(5);
-                        motion_set(dir,1+random(4));
-                    }
-                }
+                    recolor = merge_colour(global.p1aura,c_white,0.6);
+                    part_type_color1(global.part_sparkle,recolor);
+                    part_type_speed(global.part_sparkle,1,5,0,0);
+                    part_particles_create(global.part_spark,x,y,global.part_sparkle,200);
                 }
                 if (audio_is_playing(p1snd_vocal))
                 {
@@ -625,20 +610,10 @@ or (mode = "stuck")
                 burst.aura = global.p1aura;
                 if (global.particles = "On")
                 {
-                repeat(200)
-                {
-                    a = instance_create(x,y,o_testspark);
-                    a.player = 1;
-                    a.dir = random(360);
-                    with (a)
-                    {
-                        image_alpha = random(1);
-                        aura = global.p1aura;
-                        image_angle = dir;
-                        image_xscale = 1+random(5);
-                        motion_set(dir,1+random(4));
-                    }
-                }
+                    recolor = merge_colour(global.p1aura,c_white,0.6);
+                    part_type_color1(global.part_sparkle,recolor);
+                    part_type_speed(global.part_sparkle,1,5,0,0);
+                    part_particles_create(global.part_spark,x,y,global.part_sparkle,200);
                 }
                 if (audio_is_playing(p1snd_vocal))
                 {
@@ -662,12 +637,10 @@ if (mode = "lose")
     image_alpha -= 0.005;
     if (global.particles = "On")
     {
-    a = instance_create(x,y,o_testspark);
-    with (a)
-    {
-        motion_set(random(360),random(3));
-        aura = global.p2aura;
-    }
+        recolor = merge_colour(global.p2aura,c_white,0.6);
+        part_type_color1(global.part_sparkle,recolor);
+        part_type_speed(global.part_sparkle,1,3,0,0);
+        part_particles_create(global.part_spark,x,y,global.part_sparkle,3);
     }
 }
 
@@ -928,19 +901,16 @@ if (global.p2tp <= 300)
         global.p2tp += 1.5;
         if (maxaura = false)
         {
-            repeat (global.p2tp/15)
-            {
-                a = instance_create(x,y,o_auraemit);
-                a.player = 2;
-                a.dir = random(360);
-                with (a)
-                {
-                    aura = global.p2aura;
-                    image_angle = dir;
-                    image_xscale = random(global.p2tp/60);
-                    motion_set(dir,((global.p2tp/100)*random(4))+1);
-                }
-            }
+            var _dir = random(360);
+            var _len = 30 + (30*(global.p2tp/150));
+            var _xx = lengthdir_x(_len,_dir);
+            var _yy = lengthdir_y(_len,_dir);
+            part_type_direction(glow3,_dir+180,_dir+180,0,0);
+            part_type_speed(glow3,0,0,0.1+(0.1*(global.p2tp/100)),0);
+            part_type_alpha3(glow3,0,0.1+((global.p2tp/300)*0.9),0);
+            var _scale = 0.1+(0.2*(global.p2tp/300));
+            part_type_size(glow3,_scale,_scale,0,0);
+            part_particles_create(aura,x+_xx,y+_yy,glow3,3)
         }
     }
 }
@@ -1206,20 +1176,10 @@ or (mode = "dash")
                 burst.aura = global.p2aura;
                 if (global.particles = "On")
                 {
-                repeat(200)
-                {
-                    a = instance_create(x,y,o_testspark);
-                    a.player = 1;
-                    a.dir = random(360);
-                    with (a)
-                    {
-                        image_alpha = random(1);
-                        aura = global.p2aura;
-                        image_angle = dir;
-                        image_xscale = 1+random(5);
-                        motion_set(dir,1+random(4));
-                    }
-                }
+                    recolor = merge_colour(global.p2aura,c_white,0.6);
+                    part_type_color1(global.part_sparkle,recolor);
+                    part_type_speed(global.part_sparkle,1,5,0,0);
+                    part_particles_create(global.part_spark,x,y,global.part_sparkle,200);
                 }
                 if (audio_is_playing(p2snd_effect))
                 {
@@ -1257,20 +1217,10 @@ or (mode = "stuck")
                 burst.aura = global.p2aura;
                 if (global.particles = "On")
                 {
-                repeat(200)
-                {
-                    a = instance_create(x,y,o_testspark);
-                    a.player = 1;
-                    a.dir = random(360);
-                    with (a)
-                    {
-                        image_alpha = random(1);
-                        aura = global.p2aura;
-                        image_angle = dir;
-                        image_xscale = 1+random(5);
-                        motion_set(dir,1+random(4));
-                    }
-                }
+                    recolor = merge_colour(global.p2aura,c_white,0.6);
+                    part_type_color1(global.part_sparkle,recolor);
+                    part_type_speed(global.part_sparkle,1,5,0,0);
+                    part_particles_create(global.part_spark,x,y,global.part_sparkle,200);
                 }
                 if (audio_is_playing(p2snd_effect))
                 {
@@ -4038,7 +3988,7 @@ or (gamepad_button_check_pressed(1,argument2))
                     {
                         audio_stop_sound(p2snd_effect);
                     }
-                    p1snd_effect = audio_play_sound_on(p1emit,f_overheat,false,10);
+                    p2snd_effect = audio_play_sound_on(p2emit,f_overheat,false,10);
                     motion_set(point_direction(o_p1.x,o_p1.y,x,y),1);
                 }
                 mode = "hurt"

@@ -41,6 +41,24 @@ global.p1_pal = 0;
         image_speed = 0.1;
         global.p1_pal_sprite = s_zerpalette;
     }
+    
+aura = part_system_create();
+part_system_depth(aura,-3);
+
+glow = part_type_create();
+part_type_shape(glow,pt_shape_flare);
+part_type_size(glow,1.5,2,0,0);
+part_type_life(glow,2,2);
+
+if (global.particles = "On")
+{
+    glow2 = part_type_create();
+    part_type_shape(glow2,pt_shape_pixel);
+    part_type_speed(glow2,1,2,0,0);
+    part_type_direction(glow2,0,180,0,0);
+    part_type_gravity(glow2,0.1,90);
+    part_type_life(glow2,30,40);
+}
 </string>
           </argument>
         </arguments>
@@ -184,6 +202,23 @@ if (mode = "set")
     }
 }
 global.p1_pal=wrap(global.p1_pal,0,pal_swap_get_pal_count(global.p1_pal_sprite)-1);
+
+if (part_system_exists(aura))
+{
+    part_system_depth(aura,-3);
+    recolor = merge_colour(global.p1aura,c_white,0.5);
+    
+    part_type_color1(glow,recolor);
+    part_type_alpha2(glow,image_alpha,0);
+    part_particles_create(aura,x,y,glow,3)
+    
+    if (global.particles = "On")
+    {
+        part_type_color1(glow2,recolor);
+        part_type_alpha3(glow2,0,image_alpha,0);
+        part_particles_create(aura,x,y+35,glow2,2)
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -133,10 +133,6 @@ if (player = 1)
             {
                 audio_stop_sound(p2snd_effect);
             }
-            if (audio_is_playing(p2snd_atk))
-            {
-                audio_stop_sound(p2snd_atk);
-            }
             if (audio_is_playing(p2snd_vocal))
             {
                 audio_stop_sound(p2snd_vocal);
@@ -189,10 +185,6 @@ if (player = 2)
             if (audio_is_playing(p1snd_effect))
             {
                 audio_stop_sound(p1snd_effect);
-            }
-            if (audio_is_playing(p1snd_atk))
-            {
-                audio_stop_sound(p1snd_atk);
             }
             if (audio_is_playing(p1snd_vocal))
             {

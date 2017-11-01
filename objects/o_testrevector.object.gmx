@@ -713,7 +713,7 @@ if (player = 2)
                     {
                         audio_stop_sound(p2snd_effect);
                     }
-                    p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
+                    p2snd_effect = audio_play_sound_on(p2emit,f_block,false,10);
                     motion_set(other.dir,5);
                     global.p2tp -= 1;
                 }
@@ -751,6 +751,13 @@ if (player = 2)
             }
             hit = false
             alarm[0] = 40;
+            if (global.particles = "On")
+            {
+                recolor = merge_colour(aura,c_white,0.6);
+                part_type_color1(global.part_sparkle,recolor);
+                part_type_speed(global.part_sparkle,1,10,0,0);
+                part_particles_create(global.part_spark,x,y,global.part_sparkle,30);
+            }
         }
     }
 }
@@ -841,6 +848,13 @@ if (player = 2)
             }
             hit = false
             alarm[0] = 40;
+            if (global.particles = "On")
+            {
+                recolor = merge_colour(aura,c_white,0.6);
+                part_type_color1(global.part_sparkle,recolor);
+                part_type_speed(global.part_sparkle,1,10,0,0);
+                part_particles_create(global.part_spark,x,y,global.part_sparkle,30);
+            }
         }
     }
 }

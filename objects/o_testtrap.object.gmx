@@ -242,7 +242,7 @@ if (hit = true)
             {
                 audio_stop_sound(p2snd_effect);
             }
-            p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,f_block,false,10);
             motion_set(other.dir,2);
             global.p2tp -= 1;
         }

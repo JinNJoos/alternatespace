@@ -658,7 +658,7 @@ if (room = r_controls)
         {
             exit;
         }
-        else
+        else if not (instance_exists(o_keycontrol))
         {
             switch(selection)
             {
@@ -779,7 +779,7 @@ if (room = r_controls)
         {
             exit;
         }
-        else
+        else if not (instance_exists(o_keycontrol))
         {
             switch(selection)
             {
@@ -893,7 +893,7 @@ if (room = r_controls)
         {
             exit;
         }
-        else
+        else if not (instance_exists(o_keycontrol))
         {
             switch(selection)
             {
@@ -957,7 +957,7 @@ if (room = r_controls)
         {
             exit;
         }
-        else
+        else if not (instance_exists(o_keycontrol))
         {
             switch(selection)
             {
@@ -1021,7 +1021,7 @@ if (room = r_controls)
         {
             exit;
         }
-        else
+        else if not (instance_exists(o_keycontrol))
         {
             switch(selection)
             {

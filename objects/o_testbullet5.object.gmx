@@ -102,52 +102,19 @@ damage = 1
             <kind>1</kind>
             <string>if (dead = true)
 {
-if (player = 1)
-{
-    audio_emitter_position(emit,x,y,150);
-    audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-    if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
-    d = audio_play_sound_on(emit,f_firehit,false,10);
+    if (player = 1)
+    {
+        emit = audio_emitter_create();
+        audio_emitter_position(emit,x,y,150);
+        audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
+        d = audio_play_sound_on(emit,f_firehit,false,10);
+    }
     if (global.particles = "On")
     {
-    repeat(100)
-    {
-        a = instance_create(x,y,o_testspark);
-        with (a)
-        {
-            motion_set(random(360),random(10));
-            aura = global.p1aura;
-        }
-    }
+        part_type_speed(global.part_sparkle,1,10,0,0);
+        part_particles_create(global.part_spark,x,y,global.part_sparkle,100);
     }
     instance_destroy();
-}
-if (player = 2)
-{
-    audio_emitter_position(emit,x,y,150);
-    audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
-    if (audio_is_playing(d))
-        {
-            audio_stop_sound(d);
-        }
-    d = audio_play_sound_on(emit,f_firehit,false,10);
-    if (global.particles = "On")
-    {
-    repeat(100)
-    {
-        a = instance_create(x,y,o_testspark);
-        with (a)
-        {
-            motion_set(random(360),random(10));
-            aura = global.p2aura;
-        }
-    }
-    }
-    instance_destroy();
-}
 }
 </string>
           </argument>
@@ -539,7 +506,7 @@ or (player = 3)
                     {
                         audio_stop_sound(p2snd_effect);
                     }
-                    p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
+                    p2snd_effect = audio_play_sound_on(p2emit,f_block,false,10);
                     motion_set(other.dir,2);
                     global.p2tp -= 1;
                 }
@@ -618,7 +585,7 @@ or (player = 4)
                     {
                         audio_stop_sound(p1snd_effect);
                     }
-                    p1snd_effect = audio_play_sound_on(emit,f_block,false,10);
+                    p1snd_effect = audio_play_sound_on(p1emit,f_block,false,10);
                     motion_set(other.dir,2);
                     global.p1tp -= 1;
                 }

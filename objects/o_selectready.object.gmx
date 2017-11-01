@@ -148,6 +148,20 @@ if (mode = "set")
           <argument>
             <kind>1</kind>
             <string>audio_stop_sound(global.menumusic);
+with (o_p1)
+{
+    if (part_system_exists(aura))
+    {
+        part_system_destroy(aura);
+    }
+}
+with (o_p2)
+{
+    if (part_system_exists(aura))
+    {
+        part_system_destroy(aura);
+    }
+}
 room_goto(r_title);
 </string>
           </argument>

@@ -100,16 +100,39 @@ if (global.p2char = 'zer')
 
 /////////////////////////////////////
 
-aura = instance_create(x,y,o_auraglow);
-with (aura)
+aura = part_system_create();
+part_system_depth(aura,-y+1);
+
+recolor = merge_colour(global.p2aura,c_white,0.6);
+
+glow = part_type_create();
+part_type_shape(glow,pt_shape_flare);
+part_type_size(glow,1.5,2,0,0);
+part_type_color1(glow,recolor);
+part_type_life(glow,2,2);
+
+if (global.particles = "On")
 {
-    player = 2;
+    glow2 = part_type_create();
+    part_type_shape(glow2,pt_shape_pixel);
+    part_type_color1(glow2,recolor);
+    part_type_speed(glow2,1,2,0,0);
+    part_type_direction(glow2,0,180,0,0);
+    part_type_gravity(glow2,0.1,90);
+    part_type_life(glow2,30,40);
 }
+
+glow3 = part_type_create();
+part_type_shape(glow3,pt_shape_flare);
+part_type_color1(glow3,recolor);
+part_type_life(glow3,20,20);
+
 stats = instance_create(x,y,o_stats);
 with (stats)
 {
     player = 2;
 }
+
 mover = instance_create(x,y,o_movedir);
 with (mover)
 {
@@ -1311,10 +1334,27 @@ audio_emitter_gain(p2voice,(global.master/100)*(global.voice/100));
 depth = -y;
 if (global.p2hp &lt;= 0)
 {
+    if (part_system_exists(aura))
+    {
+        part_system_destroy(aura);
+    }
     alarm[0] = -1;
     alarm[1] = -1;
     global.p2hp = 0;
     mode = "lose";
+}
+
+if (part_system_exists(aura))
+{
+    part_system_depth(aura,-y+1);
+    part_type_alpha2(glow,global.p2tp/300,0);
+    part_particles_create(aura,x,y,glow,4)
+    
+    if (global.particles = "On")
+    {
+        part_type_alpha3(glow2,0,1,0);
+        part_particles_create(aura,x,y+35,glow2,round(global.p2tp/200))
+    }
 }
 </string>
           </argument>

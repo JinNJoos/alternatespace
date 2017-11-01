@@ -40,6 +40,21 @@ audio_emitter_position(emitmusic,x,y,100);
 audio_emitter_gain(emitmusic,(global.master/100)*(global.music/100));
 global.bgm = audio_play_sound_on(emitmusic,global.theme,true,10);
 
+if (global.particles = "On")
+{
+    global.part_spark = part_system_create();
+    part_system_depth(global.part_spark,-y);
+    
+    global.part_sparkle = part_type_create();
+    part_type_sprite(global.part_sparkle,s_testspark,false,false,false);
+    //part_type_shape(global.part_sparkle,pt_shape_pixel);
+    //part_type_size(global.part_sparkle,0.3,0.3,0,0)
+    part_type_speed(global.part_sparkle,1,3,0,0);
+    part_type_direction(global.part_sparkle,0,360,0,0);
+    part_type_life(global.part_sparkle,20,20);
+    part_type_alpha2(global.part_sparkle,0.9,0);
+}
+
 target_zoom = 2
 zoom = 1
 default_zoom = 2
@@ -267,6 +282,21 @@ if (global.theme = f_excursion)
             <string>if (audio_is_playing(global.bgm))
 {
     audio_stop_sound(global.bgm);
+}
+part_system_destroy(global.part_spark);
+with (o_p1)
+{
+    if (part_system_exists(aura))
+    {
+        part_system_destroy(aura);
+    }
+}
+with (o_p2)
+{
+    if (part_system_exists(aura))
+    {
+        part_system_destroy(aura);
+    }
 }
 room_goto(r_title);
 </string>

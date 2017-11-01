@@ -120,7 +120,7 @@ if (hit = true)
             {
                 audio_stop_sound(p2snd_effect);
             }
-            p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,f_block,false,10);
             motion_set(other.direction,2);
             global.p2tp -= 1;
         }
@@ -130,7 +130,7 @@ if (hit = true)
             {
                 audio_stop_sound(p2snd_effect);
             }
-            p2snd_effect = audio_play_sound_on(emit,f_block,false,10);
+            p2snd_effect = audio_play_sound_on(p2emit,f_block,false,10);
         }
         if not (mode = "guard")
         and not (mode = "burst")
@@ -208,7 +208,7 @@ if (hit = true)
             {
                 audio_stop_sound(p1snd_effect);
             }
-            p1snd_effect = audio_play_sound_on(emit,f_block,false,10);
+            p1snd_effect = audio_play_sound_on(p1emit,f_block,false,10);
             motion_set(other.direction,2);
             global.p1tp -= 1;
         }
@@ -218,7 +218,7 @@ if (hit = true)
             {
                 audio_stop_sound(p1snd_effect);
             }
-            p1snd_effect = audio_play_sound_on(emit,f_block,false,10);
+            p1snd_effect = audio_play_sound_on(p1emit,f_block,false,10);
         }
         if not (mode = "guard")
         and not (mode = "burst")

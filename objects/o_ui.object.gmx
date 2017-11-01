@@ -1629,6 +1629,7 @@ audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
                 if (image_alpha &lt;= 0)
                 {
                     audio_stop_all();
+                    part_system_destroy(global.part_spark);
                     room_goto(r_victory);
                 }
             }
@@ -1637,6 +1638,7 @@ audio_emitter_gain(emit,(global.master/100)*(global.effect/100));
                 if (image_alpha &lt;= 0)
                 {
                     audio_stop_all();
+                    part_system_destroy(global.part_spark);
                     room_goto(r_victory);
                 }
             }
